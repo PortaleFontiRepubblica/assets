@@ -1,0 +1,523 @@
+@prefix : <https://w3id.org/italian-republic-history/onto/person/> .
+@prefix RO: <https://w3id.org/italia/onto/RO/> .
+@prefix TI: <https://w3id.org/italia/onto/TI/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix CPV: <https://w3id.org/italia/onto/CPV/> .
+@prefix org: <https://w3id.org/italian-republic-history/onto/org/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/italian-republic-history/onto/person> .
+
+<https://w3id.org/italian-republic-history/onto/person> rdf:type owl:Ontology ;
+                                                         owl:versionIRI <https://w3id.org/italian-republic-history/onto/person/0.3> ;
+                                                         owl:imports <https://w3id.org/italia/onto/CPV> ,
+                                                                     <https://w3id.org/italian-republic-history/onto/org> ;
+                                                         <http://purl.org/dc/terms/description> "Questa è l'ontologia delle persone utilizzata nell'ambito del progetto CNR portale delle fonti della storia della repubblica italiana. L'ontologia rappresenta le persone il più delle volte con un profilo pubblico che possono anche operare nel contesto politico come deputati, senatori e presidenti della repubblica. L'ontologia estende l'ontologia nazionale CPV proprio per modellare caratteristiche specifiche delle persone in questo ambito progettuale."@it ;
+                                                         <http://purl.org/dc/terms/title> "Data Sources of the Italian Republic - Person Ontology"@en ,
+                                                                                          "Portale delle fonti - Ontologia delle Persone (Pubbliche/Politiche)"@it ;
+                                                         owl:versionInfo "Versione 0.3 - revisione dell'ontologia soprattutto sulla parte persona e persona politica"@it ;
+                                                         <https://w3id.org/italia/onto/ADMS/prefix> "pers" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/italia/onto/RO/forEntity
+RO:forEntity rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/onto/RO/holdsRoleInTime
+RO:holdsRoleInTime rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/onto/RO/isRoleInTimeOf
+RO:isRoleInTimeOf rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/assignedBy
+:assignedBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :HonourAssignment ;
+            rdfs:range org:Organisation ;
+            rdfs:comment "Proprietà utilizzata per rappresentare un'organizzazione (anche politica) che assegna un'onorifenza a una persona."@it ;
+            rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+            rdfs:label "assegnata da"@it ,
+                       "assigned by"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/assumedBy
+:assumedBy rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :hasRelation ;
+           rdf:type owl:AsymmetricProperty ;
+           rdfs:domain :PoliticalRole ;
+           rdfs:range :PoliticalRole ;
+           rdfs:comment "Proprietà utilizzata per rappresentare un ruolo assunto da un altro ruolo, come il caso del presidente supplente assunto dal presidente del senato in assenza del presidente della repubblica."@it ;
+           rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+           rdfs:label "assumed by"@en ,
+                      "assunto da"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/forPoliticalOrganisation
+:forPoliticalOrganisation rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf RO:forEntity ;
+                          rdfs:domain [ rdf:type owl:Class ;
+                                        owl:unionOf ( :PoliticalMandate
+                                                      :PoliticalMembership
+                                                    )
+                                      ] ;
+                          rdfs:range org:PoliticalOrganisation ;
+                          rdfs:comment "per organizzazione politica"@it ;
+                          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                          rdfs:label "for political organisation"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/hasAssignedHonour
+:hasAssignedHonour rdf:type owl:ObjectProperty ;
+                   owl:inverseOf :isHonourAssignmentOf ;
+                   rdfs:domain <https://w3id.org/italian-republic-history/person/Person> ;
+                   rdfs:range :HonourAssignment ;
+                   rdfs:comment "La proprietà che consente di collegare una persona fisica a una situazione di assegnazione di un'onorificenza da parte di un'organizzazione."@it ;
+                   rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                   rdfs:label "ha assegnazione onorificenza"@it ,
+                              "has assigned honour"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/hasCreativeWork
+:hasCreativeWork rdf:type owl:ObjectProperty ;
+                 rdfs:domain :PoliticalFigure ;
+                 rdfs:range <http://dati.beniculturali.it/cis/CreativeWork> ;
+                 rdfs:comment "La proprietà lega una figura pubblica con tutti i possibili oggetti creativi ad essa associati. Esempi di oggetti creativi, definiti nell'ontologia cultural-on sono: un'immagine, un audio, un video, ecc."@it ;
+                 rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                 rdfs:label "ha lavoro creativo"@it ,
+                            "has creative work"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/hasHonour
+:hasHonour rdf:type owl:ObjectProperty ;
+           rdfs:domain [ rdf:type owl:Class ;
+                         owl:unionOf ( :HonourAssignment
+                                       <https://w3id.org/italian-republic-history/person/Person>
+                                     )
+                       ] ;
+           rdfs:range :Honour ;
+           rdfs:comment "Proprietà utilizzata per rappresentare l'onorificenza di una persona e l'onorificenza nella situazione di assegnazione della stessa a una persona da parte di un'organizzazione"@it ;
+           rdfs:label <https://w3id.org/italian-republic-history/onto/person> ,
+                      "ha onorificenza"@it ,
+                      "has honour"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/hasMandateType
+:hasMandateType rdf:type owl:ObjectProperty ;
+                rdfs:domain :PoliticalMandate ;
+                rdfs:range :PoliticalMandateType ;
+                rdfs:comment "La proprietà consente di specificare il tipo di mandato politico collegando la classe mandato politico con la classe tipo mandato politico."@it ;
+                rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                rdfs:label "ha tipo mandato"@it ,
+                           "has mandate type"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/hasOccupation
+:hasOccupation rdf:type owl:ObjectProperty ;
+               rdfs:domain <https://w3id.org/italian-republic-history/person/Person> ;
+               rdfs:range :Occupation ;
+               rdfs:comment "Proprietà che consente di specificare una professione esercitata da una persona"@it ;
+               rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+               rdfs:label "ha professione"@it ,
+                          "has occupation"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/hasPoliticalRole
+:hasPoliticalRole rdf:type owl:ObjectProperty ;
+                  rdfs:domain owl:Thing ;
+                  rdfs:range :PoliticalRole ;
+                  rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                  rdfs:label "ha ruolo politico"@it ,
+                             "has political role"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/hasReasonForEnding
+:hasReasonForEnding rdf:type owl:ObjectProperty ;
+                    rdfs:domain :PoliticalMandate ;
+                    rdfs:range :Reason ;
+                    rdfs:comment "Proprietà usata per collegare il mandato politco con la ragione per cui esso è terminato."@it ;
+                    rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                    rdfs:label "ha motivo per fine mandato"@it ,
+                               "has reason for ending"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/hasRelation
+:hasRelation rdf:type owl:ObjectProperty ,
+                      owl:SymmetricProperty ;
+             rdfs:domain :PoliticalRole ;
+             rdfs:range :PoliticalRole ;
+             rdfs:comment """Proprietà generica per indicare una relazione tra un ruolo politico e l'altro. Ad esempio il presidente supplente è un ruolo in relazione con il presidente del senato e con il presidente della repubblica.
+Relazione aggiunta in base ai dati della presidenza della repubblica."""@it ;
+             rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+             rdfs:label "ha relazione con"@it ,
+                        "has relation"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/holdsMembership
+:holdsMembership rdf:type owl:ObjectProperty ;
+                 rdfs:domain :PoliticalFigure ;
+                 rdfs:range :PoliticalMembership ;
+                 rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                 rdfs:label "appartiene"@it ,
+                            "holds membership"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/holdsPoliticalMandate
+:holdsPoliticalMandate rdf:type owl:ObjectProperty ;
+                       rdfs:subPropertyOf RO:holdsRoleInTime ;
+                       owl:inverseOf :isPoliticalMandateOf ;
+                       rdfs:domain :PoliticalFigure ;
+                       rdfs:range :PoliticalMandate ;
+                       rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                       rdfs:label "ha mandato politico"@it ,
+                                  "holds political mandate"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/inTheMandateContext
+:inTheMandateContext rdf:type owl:ObjectProperty ;
+                     owl:inverseOf :isContextForMembership ;
+                     rdfs:domain :PoliticalMembership ;
+                     rdfs:range :PoliticalMandate ;
+                     rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                     rdfs:label "in the mandate context"@en ,
+                                "nel contesto del mandato"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/isContextForMembership
+:isContextForMembership rdf:type owl:ObjectProperty ;
+                        rdfs:domain :PoliticalMandate ;
+                        rdfs:range :PoliticalMembership ;
+                        rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                        rdfs:label "is context for membership"@en ,
+                                   "è contesto per appartenenza"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/isExertedInLegislature
+:isExertedInLegislature rdf:type owl:ObjectProperty ;
+                        rdfs:domain :PoliticalMandate ;
+                        rdfs:range :Legislature ;
+                        rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                        rdfs:label "is exerted in legislature "@en ,
+                                   "è esercitato in legislatura"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/isHonourAssignmentOf
+:isHonourAssignmentOf rdf:type owl:ObjectProperty ;
+                      rdfs:domain :HonourAssignment ;
+                      rdfs:range <https://w3id.org/italian-republic-history/person/Person> ;
+                      rdfs:comment "Proprietà inversa di ha onorificenza assegnata che consente di collegare la situazione di assegnazione di un'onorificenza a una persona."@it ;
+                      rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                      rdfs:label "is honour assignment of"@en ,
+                                 "è assegnazione di onorificenza di"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/isMemberOfPoliticalOrg
+:isMemberOfPoliticalOrg rdf:type owl:ObjectProperty ;
+                        rdfs:domain :PoliticalFigure ;
+                        rdfs:range org:PoliticalOrganisation ;
+                        rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                        rdfs:label "is member of political org"@en ,
+                                   "è membro/a di organizzazione politica"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/isPoliticalMandateOf
+:isPoliticalMandateOf rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf RO:isRoleInTimeOf ;
+                      rdfs:domain :PoliticalMandate ;
+                      rdfs:range :PoliticalFigure ;
+                      rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                      rdfs:label "is political mandate of"@en ,
+                                 "è mandato politico di"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/performs
+:performs rdf:type owl:ObjectProperty ;
+          rdfs:comment "Proprietà utilizzata per indicare la funzione esercitata da uno specifico ruolo politico."@it ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+          rdfs:label "esercita"@it ,
+                     "performs"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/replaces
+:replaces rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasRelation ;
+          rdfs:domain :PoliticalRole ;
+          rdfs:range :PoliticalRole ;
+          rdfs:comment "Proprietà specifica che consente di rappresentare un ruolo politico che sostituisce un altro ruolo politico."@it ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+          rdfs:label "replaces"@en ,
+                     "sostituisce"@it .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/person/alsoKnownAs
+:alsoKnownAs rdf:type owl:DatatypeProperty ;
+             rdfs:domain <https://w3id.org/italian-republic-history/person/Person> ;
+             rdfs:range rdfs:Literal ;
+             rdfs:comment "Proprietà utilizzata per specificare tutti i possibili nomi attraverso cui una persona è conosciuta. Al momento la proprietà ci consente quindi di disambiguare su un'unica persona  tutti i modi diversi utilizzati per chiamarla (gestione authoritative file)."@it ;
+             rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+             rdfs:label "also known as"@en ,
+                        "anche conosciuto/a come"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/legislatureNumber
+:legislatureNumber rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :Legislature ;
+                   rdfs:range rdfs:Literal ;
+                   rdfs:comment "Proprietà utilizzata per specificare il numero della legislatura, 1, 2, 16, ecc."@it ;
+                   rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                   rdfs:label "legislature number"@en ,
+                              "numero della legislatura"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/legislatureRomanNumber
+:legislatureRomanNumber rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        rdfs:domain :Legislature ;
+                        rdfs:range rdfs:Literal ;
+                        rdfs:comment "Proprietà utilizzata per specificare il numero romano della legislatura, I, II, XVI, ecc."@it ;
+                        rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                        rdfs:label "legislature roman number"@en ,
+                                   "numero della legislatura romano"@it .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://dati.beniculturali.it/cis/CreativeWork
+<http://dati.beniculturali.it/cis/CreativeWork> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/RO/Role
+RO:Role rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/RO/TimeIndexedRole
+RO:TimeIndexedRole rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/l0/Activity
+l0:Activity rdf:type owl:Class .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/PoliticalOrganisation
+org:PoliticalOrganisation rdf:type owl:Class .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/Function
+:Function rdf:type owl:Class ;
+          rdfs:subClassOf l0:Activity ;
+          rdfs:comment "La funzione esercitata da uno specifico ruolo politico. Esempi includono \"Nomina il Presidente del Consiglio dei ministri\", \"Invia messaggi alle Camere\", ecc."@it ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+          rdfs:label "Function"@en ,
+                     "Funzione"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/Honour
+:Honour rdf:type owl:Class ;
+        rdfs:subClassOf l0:Object ;
+        rdfs:comment "La classe delle onorificenze che possono essere assegnate a delle persone."@it ;
+        rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+        rdfs:label "Honour"@en ,
+                   "Onorificenza"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/HonourAssignment
+:HonourAssignment rdf:type owl:Class ;
+                  rdfs:subClassOf l0:EventOrSituation ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :assignedBy ;
+                                    owl:someValuesFrom org:Organisation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :assignedBy ;
+                                    owl:allValuesFrom org:Organisation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasHonour ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Honour
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isHonourAssignmentOf ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass <https://w3id.org/italian-republic-history/person/Person>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty TI:hasTemporalEntity ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass TI:TemporalEntity
+                                  ] ;
+                  rdfs:comment "Classe tecnica che consente di rappresentare la situazione di assegnazione di un'onorificenza a una persona da parte di una specifica organizzazione."@it ;
+                  rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                  rdfs:label "Assegnazione Onorificenza"@it ,
+                             "Honour Assignment"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/Legislature
+:Legislature rdf:type owl:Class .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/Occupation
+:Occupation rdf:type owl:Class ;
+            rdfs:subClassOf RO:Role ;
+            rdfs:comment "La professione svolta da una persona fisica. Gli individui di questa classe possono essere: gionalista, avvocato/essa, agricoltore, insegnante, ecc."@it ;
+            rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+            rdfs:label "Occupation"@en ,
+                       "Professione"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/PoliticalFigure
+:PoliticalFigure rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/italian-republic-history/person/Person> ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :holdsPoliticalMandate ;
+                                   owl:someValuesFrom :PoliticalMandate
+                                 ] ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :holdsPoliticalMandate ;
+                                   owl:allValuesFrom :PoliticalMandate
+                                 ] ;
+                 rdfs:comment "È persona che opera nell'ambito politico in virtù di un preciso mandato politico."@it ;
+                 rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                 rdfs:label "Figura Politica"@it ,
+                            "Political Figure"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/PoliticalMandate
+:PoliticalMandate rdf:type owl:Class ;
+                  rdfs:subClassOf RO:TimeIndexedRole ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :forPoliticalOrganisation ;
+                                    owl:someValuesFrom org:PoliticalOrganisation
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasPoliticalRole ;
+                                    owl:someValuesFrom :PoliticalRole
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :isExertedInLegislature ;
+                                    owl:allValuesFrom :Legislature
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasMandateType ;
+                                    owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :PoliticalMandateType
+                                  ] ;
+                  rdfs:comment "La situazione per cui a una certa persona viene assegnato un mandato politico per ricoprire uno specifico ruolo politico nel contesto di qualche organizzazione politica. Ad esempio il mandato politico della camera è il mandato per cui una persona riveste il ruolo di deputato per la camera dei deputati."@it ;
+                  rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                  rdfs:label "Mandato politico"@it ,
+                             "Political mandate "@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/PoliticalMandateType
+:PoliticalMandateType rdf:type owl:Class ;
+                      rdfs:subClassOf l0:Characteristic ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty l0:name ;
+                                        owl:someValuesFrom rdfs:Literal
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty l0:identifier ;
+                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                      ] ;
+                      rdfs:comment """La classe delle categorie di mandati politici. Per esempio istanze di questa classe possono essere: mandato di tipo \"elettivo\", mandato di tipo \"a vita, nomina del Presidente della Repubblica, ecc.
+La classe è stata introdotta in base ai dati del Senato della Repubblica."""@it ;
+                      rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                      rdfs:label "Political Mandate Type"@en ,
+                                 "Tipo Mandato Politico"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/PoliticalMembership
+:PoliticalMembership rdf:type owl:Class ;
+                     rdfs:subClassOf l0:EventOrSituation ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty TI:hasTemporalEntity ;
+                                       owl:someValuesFrom TI:TemporalEntity
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :forPoliticalOrganisation ;
+                                       owl:someValuesFrom org:PoliticalOrganisation
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :hasPoliticalRole ;
+                                       owl:allValuesFrom :PoliticalRole
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty :inTheMandateContext ;
+                                       owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                       owl:onClass :PoliticalMandate
+                                     ] ;
+                     rdfs:comment "La classe è utilizzata per rappresentazione l'aderenza o l'appartenenza di una figura pubblica a un'organizzazione politica con un certo ruolo. Per esempio, aderenza al gruppo parlamentare X come membro."@it ;
+                     rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                     rdfs:label "Appartenenza politica"@it ,
+                                "Political membership"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/PoliticalRole
+:PoliticalRole rdf:type owl:Class ;
+               rdfs:subClassOf RO:Role ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasRelation ;
+                                 owl:allValuesFrom :PoliticalRole
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :performs ;
+                                 owl:allValuesFrom :Function
+                               ] ;
+               rdfs:comment "La classe che rappresenta i ruoli politici come il presidente della repubblica, il deputato, il senatore, ecc."@it ;
+               rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+               rdfs:label "Political Role"@en ,
+                          "Ruolo Politico"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/Reason
+:Reason rdf:type owl:Class ;
+        rdfs:subClassOf l0:Concept ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty l0:name ;
+                          owl:someValuesFrom rdfs:Literal
+                        ] ;
+        rdfs:comment "La classe è utilizzata per specifica i motivi di fine di un mandato politico. Esempi includono: \"Nominato senatore a vita\", \"Fine legislatura\", \"Deceduto/a\" ecc."@it ;
+        rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+        rdfs:label "Motivo"@it ,
+                   "Reason"@en .
+
+
+###  https://w3id.org/italian-republic-history/person/Person
+<https://w3id.org/italian-republic-history/person/Person> rdf:type owl:Class ;
+                                                          rdfs:subClassOf CPV:Person ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasAssignedHonour ;
+                                                                            owl:allValuesFrom :HonourAssignment
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasCreativeWork ;
+                                                                            owl:allValuesFrom <http://dati.beniculturali.it/cis/CreativeWork>
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :hasOccupation ;
+                                                                            owl:allValuesFrom :Occupation
+                                                                          ] ,
+                                                                          [ rdf:type owl:Restriction ;
+                                                                            owl:onProperty :alsoKnownAs ;
+                                                                            owl:allValuesFrom rdfs:Literal
+                                                                          ] ;
+                                                          rdfs:comment "La classe delle persone fisiche come definite nel contesto del progetto CNR portale delle fonti (persone anche con una rilevanza socio-culturale). Esse possono essere figure politiche e sono un sottoinsieme della classe più generale nazionale delle persone fisiche."@it ,
+                                                                       "Person"@en ;
+                                                          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                                                          rdfs:label "Persona"@it .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
