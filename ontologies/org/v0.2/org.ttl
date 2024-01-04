@@ -1,0 +1,425 @@
+@prefix : <https://w3id.org/italian-republic-history/onto/org/> .
+@prefix RO: <https://w3id.org/italia/onto/RO/> .
+@prefix TI: <https://w3id.org/italia/onto/TI/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix COV: <https://w3id.org/italia/onto/COV/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/italian-republic-history/onto/org> .
+
+<https://w3id.org/italian-republic-history/onto/org> rdf:type owl:Ontology ;
+                                                      owl:versionIRI <https://w3id.org/italian-republic-history/onto/org/0.2> ;
+                                                      owl:imports <https://w3id.org/italia/onto/COV> ;
+                                                      <http://purl.org/dc/terms/description> "Questa è l'ontologia delle organizzazioni utilizzata nel contesto del progetto CNR portale delle fonti della repubblica italiana. Consente di modellare organizzazioni di ogni tipo in questo contesto, anche politiche come per esempio, governo, presidenza della repubblica, partito politico, gruppo parlamentare."@it ;
+                                                      <http://purl.org/dc/terms/title> "Data Sources of the Italian Republic -  Organisation Ontology"@en ,
+                                                                                       "Portale delle fonti - Ontologia delle Organizzazioni (Politiche)"@it ;
+                                                      owl:versionInfo "Versione 0.2 - Revisione complessiva ontologia"@it ;
+                                                      <https://w3id.org/italia/onto/ADMS/prefix> "org" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/org/hasHeadOfCabinet
+:hasHeadOfCabinet rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Cabinet ;
+                  rdfs:range <https://w3id.org/italian-republic-history/person/Person> ;
+                  rdfs:comment "Proprietà utilizzata per ottenere la persona a capo del governo"@it ;
+                  rdfs:isDefinedBy <https://w3id.org/italian-republic-history/org> ;
+                  rdfs:label "ha capo di governo"@it ,
+                             "has head of cabinet"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/hasNameInTime
+:hasNameInTime rdf:type owl:ObjectProperty ;
+               owl:inverseOf :isNameInTimeFor ;
+               rdfs:domain :ParliamentaryGroup ;
+               rdfs:range :NameInTime ;
+               rdfs:comment "Proprietà che lega il gruppo parlamentre con la situazione per cui la sua denominazione può cambiare nel tempo anche nell'ambito di una stessa legislatura."@it ;
+               rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+               rdfs:label "ha nome nel tempo"@it ,
+                          "has name in time"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/hasOrgType
+:hasOrgType rdf:type owl:ObjectProperty ;
+            rdfs:domain :Organisation ;
+            rdfs:range :OrgType ;
+            rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+            rdfs:label "ha tipo organizzazione"@it ,
+                       "has organisation type"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isPartOf ;
+         rdf:type owl:TransitiveProperty ,
+                  owl:ReflexiveProperty ;
+         rdfs:domain :Organisation ;
+         rdfs:range :Organisation ;
+         rdfs:comment "Proprietà utilizzata per rappresentare organizzazioni più complesse formate da parti che sono a loro volta altre organizzazione. Esempio: Il parlamento è un organo costituzionale con due parti la camera dei deputati e il senato della repubblica."@it ;
+         rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+         rdfs:label "ha parte"@it ,
+                    "has part"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/hasPower
+:hasPower rdf:type owl:ObjectProperty ;
+          rdfs:domain :GovernmentBody ;
+          rdfs:range :PoliticalPower ;
+          rdfs:comment "Proprietà utilizzata per indicare il potere esercitato dagli organi dello stato, siano essi organi costituzionali che di natura istituzionale."@it ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+          rdfs:label "esercita potere"@it ,
+                     "has power"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/isNameInTimeFor
+:isNameInTimeFor rdf:type owl:ObjectProperty ;
+                 rdfs:domain :NameInTime ;
+                 rdfs:range :ParliamentaryGroup ;
+                 rdfs:comment "Proprietà che lega la situazione del nome che cambia nel tempo al gruppo parlamentare per cui questo accade, anche nel contesto della stessa legislatura."@it ;
+                 rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                 rdfs:label "is name in time of"@en ,
+                            "è nome nel tempo di"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/isPartOf
+:isPartOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :Organisation ;
+          rdfs:range :Organisation ;
+          rdfs:comment "Proprietà inversa di 'ha parte'"@it ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+          rdfs:label "is part of"@en ,
+                     "è parte di"@it .
+
+
+###  https://w3id.org/italian-republic-hystory/onto/irho/hasLegislatureContext
+<https://w3id.org/italian-republic-hystory/onto/irho/hasLegislatureContext> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/org/lastParliamentaryGroupName
+:lastParliamentaryGroupName rdf:type owl:DatatypeProperty ;
+                            rdfs:subPropertyOf l0:name ;
+                            rdfs:domain :ParliamentaryGroup ;
+                            rdfs:range rdfs:Literal ;
+                            rdfs:comment "La proprietà utilizzata per rappresentare l'ultima denominazione del gruppo parlamentare, intesa come ultima rispetto a possibili cambiamenti del nome del gruppo nel tempo."@it ;
+                            rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                            rdfs:label "last parliamentary group name"@en ,
+                                       "ultima denominazione del gruppo parlamentare"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/parliamentaryGroupName
+:parliamentaryGroupName rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf l0:name ;
+                        rdfs:domain :NameInTime ;
+                        rdfs:range rdfs:Literal ;
+                        rdfs:comment "Proprietà utilizzata per rappresentare il nome ufficiale del gruppo parlamentare"@it ;
+                        rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                        rdfs:label "nome del gruppo parlamentare"@it ,
+                                   "parliamentary group name"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/org/Assembly
+:Assembly rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasOrgType ;
+                                owl:hasValue :Assembly
+                              ] ;
+          rdfs:subClassOf :Organisation ;
+          owl:disjointWith :GovernmentBody ,
+                           :PoliticalAssociation ,
+                           :PoliticalGroup .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/Cabinet
+:Cabinet rdf:type owl:Class ;
+         owl:equivalentClass [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasOrgType ;
+                               owl:hasValue :Cabinet
+                             ] ;
+         rdfs:subClassOf :Organisation ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty TI:hasTemporalEntity ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass TI:TimeInterval
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasHeadOfCabinet ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <https://w3id.org/italian-republic-history/person/Person>
+                         ] ;
+         owl:disjointWith :GovernmentBody ,
+                          :PoliticalAssociation ,
+                          :PoliticalGroup .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/ConstitutionalBody
+:ConstitutionalBody rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :hasOrgType ;
+                                          owl:hasValue :ConstitutionalBody
+                                        ] ;
+                    rdfs:subClassOf :GovernmentBody ;
+                    owl:disjointWith :InstitutionalBody .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/GovernmentBody
+:GovernmentBody rdf:type owl:Class ;
+                rdfs:subClassOf COV:PublicOrganization ,
+                                :Organisation ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasPower ;
+                                  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                  owl:onClass :PoliticalPower
+                                ] ;
+                owl:disjointWith :PoliticalAssociation ,
+                                 :PoliticalGroup ;
+                rdfs:comment "La classe degli organi dello stato che include sia gli organi costituzionali, sia le organizzazioni di natura istituzionale."@it ;
+                rdfs:isDefinedBy <https://w3id.org/italian-republic-hustory/onto/org> ;
+                rdfs:label "Government Body"@en ,
+                           "Organo dello Stato"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/InstitutionalBody
+:InstitutionalBody rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasOrgType ;
+                                         owl:hasValue :InstitutionalBody
+                                       ] ;
+                   rdfs:subClassOf :GovernmentBody .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/NameInTime
+:NameInTime rdf:type owl:Class ;
+            rdfs:subClassOf l0:EventOrSituation ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty TI:atTime ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass TI:TimeInterval
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :isNameInTimeFor ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onClass :ParliamentaryGroup
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :parliamentaryGroupName ;
+                              owl:cardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            rdfs:comment "Una classe tecnica utilizzata per modellare il concetto che un certo nome cambia nel tempo. Questo può accadere per esempio nel caso di gruppi parlamentari che nel corso anche di una stessa legislatura, subiscono il cambio del nome che è quindi valido in un certo intervallo temporale. La classe infatti consente di rappresentare la situazione di un qualcosa (esempio: gruppo parlamentare) il cui nome evolve rispetto a un certo intervallo di tempo."@it ;
+            rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+            rdfs:label "Name in Time"@en ,
+                       "Nome nel tempo"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/OrgType
+:OrgType rdf:type owl:Class ;
+         rdfs:subClassOf l0:Characteristic ,
+                         l0:Concept ;
+         rdfs:comment "Il tipo di organizzazione politica. Questa potrebbe essere un'istituzione politica ulteriormente dettagliata in Governo, Camera dei Deputati, ecc. oppure un'associazione politica come un partito politico o un gruppo parlamentare"@it ;
+         rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+         rdfs:label "Political Organisation Type"@en ,
+                    "Tipo Organizzazione Politica"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/Organisation
+:Organisation rdf:type owl:Class ;
+              rdfs:subClassOf l0:Agent ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasPart ;
+                                owl:allValuesFrom :Organisation
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasOrgType ;
+                                owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :OrgType
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty l0:name ;
+                                owl:someValuesFrom rdfs:Literal
+                              ] ;
+              rdfs:comment "La classe rappresenta qualunque organizzazione o struttura, anche di natura politica come per esempio un governo, una commissione parlamentare, un partito politico. Le organizzazioni possono essere formalmente registrate in registri o basi di dati nazionali come nel caso dei Ministeri, oppure rappresentare semplicemente insieme di persone organizzate in una qualche comunità"@it ;
+              rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+              rdfs:label "Organisation"@en ,
+                         "Organizzazione"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/ParliamentaryGroup
+:ParliamentaryGroup rdf:type owl:Class ;
+                    rdfs:subClassOf :PoliticalAssociation ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :isPartOf ;
+                                      owl:someValuesFrom :ConstitutionalBody
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasNameInTime ;
+                                      owl:allValuesFrom :NameInTime
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty TI:hasTemporalCoverage ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass TI:TimeInterval
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty <https://w3id.org/italian-republic-hystory/onto/irho/hasLegislatureContext> ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass <https://w3id.org/italian-republic-hystory/onto/event/Legislature>
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :lastParliamentaryGroupName ;
+                                      owl:cardinality "1"^^xsd:nonNegativeInteger
+                                    ] ;
+                    rdfs:comment "Un tipo specifico di associazione politica intesa come l'unione dei membri di un ramo del Parlamento appartenenti allo stesso partito che si costituiscono in unità politica con un'organizzazione stabile ed una disciplina costante di gruppo"@it ;
+                    rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                    rdfs:label "Gruppo Parlamentare"@it ,
+                               "Parliamentary Group"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/ParliamentaryOrgan
+:ParliamentaryOrgan rdf:type owl:Class ;
+                    rdfs:subClassOf :InstitutionalBody ;
+                    rdfs:comment "La classe dei diversi organi parlamentari come per esempio la giunta per le elezioni, la commissione per la costituzione, la commissione per l'esame dei disegni di legge, ecc."@it ;
+                    rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                    rdfs:label "Organo Parlamentare"@it ,
+                               "Parliamentary Organ"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/PoliticalAssociation
+:PoliticalAssociation rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :hasOrgType ;
+                                            owl:hasValue :PoliticalAssociation
+                                          ] ;
+                      rdfs:subClassOf :Organisation ;
+                      owl:disjointWith :PoliticalGroup .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/PoliticalGroup
+:PoliticalGroup rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasOrgType ;
+                                      owl:hasValue :PoliticalGroup
+                                    ] ;
+                rdfs:subClassOf COV:Group ,
+                                :Organisation .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/PoliticalPower
+:PoliticalPower rdf:type owl:Class ;
+                rdfs:subClassOf l0:Concept ;
+                rdfs:comment "La classe dei 3 poteri dello stato, legislativo, esecutivo e giudiziario"@it ;
+                rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                rdfs:label "Political Power"@en ,
+                           "Potere dello Stato"@it .
+
+
+###  https://w3id.org/italian-republic-history/person/Person
+<https://w3id.org/italian-republic-history/person/Person> rdf:type owl:Class .
+
+
+###  https://w3id.org/italian-republic-hystory/onto/event/Legislature
+<https://w3id.org/italian-republic-hystory/onto/event/Legislature> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/org/Assembly
+:Assembly rdf:type owl:NamedIndividual ,
+                   :OrgType .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/Cabinet
+:Cabinet rdf:type owl:NamedIndividual ,
+                  :OrgType .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/ConstitutionalBody
+:ConstitutionalBody rdf:type owl:NamedIndividual ,
+                             :OrgType .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/Executive
+:Executive rdf:type owl:NamedIndividual ,
+                    :PoliticalPower .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/InstitutionalBody
+:InstitutionalBody rdf:type owl:NamedIndividual ,
+                            :OrgType .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/Judicial
+:Judicial rdf:type owl:NamedIndividual ,
+                   :PoliticalPower .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/Legislative
+:Legislative rdf:type owl:NamedIndividual ,
+                      :PoliticalPower .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/PoliticalAssociation
+:PoliticalAssociation rdf:type owl:NamedIndividual ,
+                               :OrgType .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/PoliticalGroup
+:PoliticalGroup rdf:type owl:NamedIndividual ,
+                         :OrgType .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:Assembly rdfs:comment "L'organizzazione politica rappresentativa che ha la funzione di emanare le leggi (assemblea parlamentare), o anche altri organismi di diritto pubblico, come le assemblee territoriali (per esempio, l’assemblea regionale Siciliana) o quelle elettorali."@it ;
+          rdfs:label "Assembly"@en ,
+                     "Assemblea"@it ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-hustory/onto/org> .
+
+
+:Cabinet rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+         rdfs:comment "Uno specifico Governo rappresentato dall'espressione della maggioranza parlamentare, cioè della coalizione di partiti che hanno ottenuto il maggior numero di seggi in Parlamento. Esempio di istanze di questa classe sono \"il governo prodi I\", \"il governo Berlusconi II\", ecc."@it ;
+         rdfs:label "Governo"@it ,
+                    "Cabinet"@en .
+
+
+:ConstitutionalBody rdfs:comment "La classe degli organi costituzionali quali: Il corpo elettorale, il Parlamento (Camera, Senato), Il Presidente della Repubblica, Il Governo (Consiglio dei Ministri, Presidente del consiglio dei Ministri, Ministri),  La Corte costituzionale."@it ;
+                    rdfs:label "Organo Costituzionale"@it ;
+                    rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                    rdfs:label "Costitutional Body"@en .
+
+
+:InstitutionalBody rdfs:label "Institutional Body"@en ;
+                   rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                   rdfs:comment "La classe rappresenta qualunque organizzazione o struttura di natura istituzionale (ma non Costituzionale), come ad esempio: un Ministero, una Commissione parlamentare, il Consiglio superiore della Magistratura."@it ;
+                   rdfs:label "Organizzazione istituzionale"@it .
+
+
+:PoliticalAssociation rdfs:comment """La classe di tutti i possibili gruppi di persone che si riuniscono per scopi politici, formalmente registrati (Partiti, Sindacati). Essi quindi sono dotati di regolare statuto e atto costitutivo.
+."""@it ;
+                      rdfs:label "Political Association"@en ;
+                      rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                      rdfs:label "Associazione Politica"@it .
+
+
+:PoliticalGroup rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/org> ;
+                rdfs:label "Gruppo Politico"@it ,
+                           "Political Group"@en ;
+                rdfs:comment "La classe rappresenta i possibili gruppi di persone che si riuniscono per scopi politici. Questa classe intende il gruppo in maniera lasca, ossia senza registrazioni formali o riconoscimenti in registri pubblici."@it .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

@@ -1,0 +1,204 @@
+@prefix : <https://w3id.org/italian-republic-history/onto/political-org/> .
+@prefix RO: <https://w3id.org/italia/onto/RO/> .
+@prefix TI: <https://w3id.org/italia/onto/TI/> .
+@prefix l0: <https://w3id.org/italia/onto/l0/> .
+@prefix COV: <https://w3id.org/italia/onto/COV/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/italian-republic-history/onto/political-org> .
+
+<https://w3id.org/italian-republic-history/onto/political-org> rdf:type owl:Ontology ;
+                                                                owl:versionIRI <https://w3id.org/italian-republic-history/onto/political-org/0.1> ;
+                                                                owl:imports COV: ,
+                                                                            l0: ;
+                                                                <http://purl.org/dc/terms/description> "Questa è l'ontologia delle organizzazioni politiche come per esempio, governo, presidenza della repubblica, partito politico, gruppo parlamentare. Sono le organizzazioni politiche considerate nell'ambito del progetto CNR - Portale delle Fonti della Storia della Repubblica Italiana."@it ;
+                                                                <http://purl.org/dc/terms/title> "Data Sources of the Italian Republic - Political Organisation Ontology"@en ,
+                                                                                                 "Portale delle fonti - ontologia delle organizzazioni politiche"@it ;
+                                                                owl:versionInfo "Versione 0.1 - Creazione dell'ontologia"@it ;
+                                                                <https://w3id.org/italia/onto/ADMS/prefix> "po" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/political-org/hasOrgType
+:hasOrgType rdf:type owl:ObjectProperty ;
+            rdfs:domain :PoliticalOrganisation ;
+            rdfs:range :OrgType ;
+            rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+            rdfs:label "ha tipo organizzazione politica"@it ,
+                       "has political organisation type"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isPartOf ;
+         rdf:type owl:TransitiveProperty ,
+                  owl:ReflexiveProperty ;
+         rdfs:domain :PoliticalOrganisation ;
+         rdfs:range :PoliticalOrganisation ;
+         rdfs:comment "Proprietà utilizzata per rappresentare organizzazioni politiche più complesse formate da parti che sono a loro volta altre organizzazione politiche. Esempio: Il parlamento è un organo costituzionale con due parti la camera dei deputati e il senato della repubblica."@it ;
+         rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+         rdfs:label "ha parte"@it ,
+                    "has part"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/hasPower
+:hasPower rdf:type owl:ObjectProperty ;
+          rdfs:domain :PoliticalBody ;
+          rdfs:range :PoliticalPower ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+          rdfs:label "esercita potere"@it ,
+                     "has power"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/isPartOf
+:isPartOf rdf:type owl:ObjectProperty ;
+          rdfs:domain :PoliticalOrganisation ;
+          rdfs:range :PoliticalOrganisation ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+          rdfs:label "is part of"@en ,
+                     "è parte di"@it .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/italia/onto/COV/PrivateOrganization
+COV:PrivateOrganization owl:disjointWith :ConstitutionalBody .
+
+
+###  https://w3id.org/italia/onto/COV/PublicPrivateOrganization
+COV:PublicPrivateOrganization owl:disjointWith :ConstitutionalBody .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/ConstitutionalBody
+:ConstitutionalBody rdf:type owl:Class ;
+                    rdfs:subClassOf COV:Organization ,
+                                    :PoliticalBody ;
+                    rdfs:comment "La classe degli organi costituzionali quali Presidenza del Consiglio dei Ministri, Presidenza della Repubblica, Corte Costituzionale, ecc."@it ;
+                    rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+                    rdfs:label "Costitutional Body"@en ,
+                               "Organo Costituzionale"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/OrgType
+:OrgType rdf:type owl:Class ;
+         rdfs:subClassOf l0:Characteristic ,
+                         l0:Concept ;
+         rdfs:comment "Il tipo di organizzazione politica. Questa potrebbe essere un'istituzione politica ulteriormente dettagliata in Governo, Camera dei Deputati, ecc. oppure un'associazione politica come un partito politico o un gruppo parlamentare"@it ;
+         rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+         rdfs:label "Political Organisation Type"@en ,
+                    "Tipo Organizzazione Politica"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/PoliticalAssociation
+:PoliticalAssociation rdf:type owl:Class ;
+                      rdfs:subClassOf :PoliticalOrganisation ;
+                      owl:disjointWith :PoliticalBody ,
+                                       :PoliticalGroup .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/PoliticalBody
+:PoliticalBody rdf:type owl:Class ;
+               rdfs:subClassOf :PoliticalOrganisation ;
+               owl:disjointWith :PoliticalGroup .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/PoliticalGroup
+:PoliticalGroup rdf:type owl:Class ;
+                rdfs:subClassOf COV:Group ,
+                                :PoliticalOrganisation .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/PoliticalOrganisation
+:PoliticalOrganisation rdf:type owl:Class ;
+                       rdfs:subClassOf l0:Agent ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasOrgType ;
+                                         owl:someValuesFrom :OrgType
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty l0:name ;
+                                         owl:someValuesFrom rdfs:Literal
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty l0:name ;
+                                         owl:allValuesFrom rdfs:Literal
+                                       ] ;
+                       rdfs:comment "La classe rappresenta qualunque organizzazione o struttura di natura politica come per esempio un governo, una commissione parlamentare, un partito politico."@it ;
+                       rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+                       rdfs:label "Organizzazione Politica"@it ,
+                                  "Political Organisation"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/PoliticalPower
+:PoliticalPower rdf:type owl:Class ;
+                rdfs:subClassOf l0:Concept ;
+                rdfs:comment "La classe dei 3 poteri dello stato, legislativo, esecutivo e giudiziario"@it ;
+                rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+                rdfs:label "Political Power"@en ,
+                           "Potere dello Stato"@it .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/political-org/Executive
+:Executive rdf:type owl:NamedIndividual ,
+                    :PoliticalPower .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/Judicial
+:Judicial rdf:type owl:NamedIndividual ,
+                   :PoliticalPower .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/Legislative
+:Legislative rdf:type owl:NamedIndividual ,
+                      :PoliticalPower .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/PoliticalAssociation
+:PoliticalAssociation rdf:type owl:NamedIndividual ,
+                               :OrgType .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/PoliticalBody
+:PoliticalBody rdf:type owl:NamedIndividual ,
+                        :OrgType .
+
+
+###  https://w3id.org/italian-republic-history/onto/political-org/PoliticalGroup
+:PoliticalGroup rdf:type owl:NamedIndividual ,
+                         :OrgType .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:PoliticalAssociation rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+                      rdfs:label "Associazione Politica"@it ;
+                      rdfs:comment "La classe delle associazioni, riconosciute, politiche. Esempi possono essere i partiti politici e i gruppi parlamentari, quest'ultimi intesi come la trasposizione parlamentare dei partiti politici."@it ;
+                      rdfs:label "Political Association"@en .
+
+
+:PoliticalBody rdfs:comment "La classe di tutte le organizzazione politiche che sono organi riconosciuti. Esempi includono, le commissioni parlamentari, le giunte, l'assemblea della camera dei deputati, ecc."@it ;
+               rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+               rdfs:label "Political Body"@en ,
+                          "Organo Politico"@it .
+
+
+:PoliticalGroup rdfs:comment "La classe di tutti i possibili gruppi di persone che si riuniscono per scopi politici. Questa classe intende il gruppo in maniera lasca, ossia senza registrazioni formali o riconoscimenti in registri pubblici."@it ;
+                rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/political-org> ;
+                rdfs:label "Gruppo Politico"@it ,
+                           "Political Group"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
