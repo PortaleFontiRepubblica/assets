@@ -1,0 +1,163 @@
+@prefix : <https://w3id.org/italia/republic-history/onto/work/> .
+@prefix TI: <https://w3id.org/italia/onto/TI/> .
+@prefix l0: <https://w3id.org/italia/onto/CPEV/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/italia/republic-history/onto/work> .
+
+<https://w3id.org/italia/republic-history/onto/work> rdf:type owl:Ontology ;
+                                                       owl:versionIRI <https://w3id.org/italia/republic-history/onto/work/0.1> ;
+                                                       owl:imports <https://w3id.org/italia/onto/l0> ;
+                                                       <http://purl.org/dc/terms/description> "Questa è l'ontologia dei lavori definita nel contesto del progetto CNR portale delle fonti della storia della repubblica italiana. Con il termine lavori si intende l'insieme delle opere create da persone ed esponenti politici. Esempi di lavori sono le risorse legali, i bollettini, i discorsi."@it ;
+                                                       <http://purl.org/dc/terms/title> "Data Sources of the History of the Italian Republic -  Work Ontology"@en ,
+                                                                                        "Portale delle fonti della Storia della Repubblica Italiana - Ontologia dei Lavori"@it ;
+                                                       owl:versionInfo "Versione 0.1 - creazione dell'ontologia"@it ;
+                                                       <https://w3id.org/italia/onto/ADMS/prefix> "work" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/italia/onto/TI/hasTemporalEntity
+TI:hasTemporalEntity rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext
+<https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy
+<https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/hasCreator
+:hasCreator rdf:type owl:ObjectProperty ;
+            rdfs:domain :Work ;
+            rdfs:range <https://w3id.org/italia/onto/l0/Agent> ;
+            rdfs:label "ha creatore"@it ,
+                       "has creator"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/hasManifestation
+:hasManifestation rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Work ;
+                  rdfs:range :WorkManifestation ;
+                  rdfs:label "ha realizzazione fisica"@it ,
+                             "has manifestation"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/registeredIn
+:registeredIn rdf:type owl:ObjectProperty ;
+              owl:inverseOf :reportsSitting ;
+              rdfs:domain <https://w3id.org/italia/republic-history/onto/event/Sitting> ;
+              rdfs:range :Bulletin ;
+              rdfs:label "registered in"@en ,
+                         "registrata in"@it .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/reportsSitting
+:reportsSitting rdf:type owl:ObjectProperty ;
+                rdfs:domain :Bulletin ;
+                rdfs:range <https://w3id.org/italia/republic-history/onto/event/Sitting> ;
+                rdfs:label "reports sitting"@en ,
+                           "riporta i dettagli seduta"@it .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/italia/republic-history/onto/IRHO/title
+<https://w3id.org/italia/republic-history/onto/IRHO/title> rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/italia/onto/TI/TemporalEntity
+TI:TemporalEntity rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/event/Legislature
+<https://w3id.org/italia/republic-history/onto/event/Legislature> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/event/Sitting
+<https://w3id.org/italia/republic-history/onto/event/Sitting> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/Bulletin
+:Bulletin rdf:type owl:Class ;
+          rdfs:subClassOf :Work ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :reportsSitting ;
+                            owl:allValuesFrom <https://w3id.org/italia/republic-history/onto/event/Sitting>
+                          ] ;
+          rdfs:label "Bollettino"@it ,
+                     "Bulletin"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/Work
+:Work rdf:type owl:Class ;
+      rdfs:subClassOf <https://w3id.org/italia/onto/l0/Object> ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext> ;
+                        owl:someValuesFrom <https://w3id.org/italia/republic-history/onto/event/Legislature>
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy> ;
+                        owl:someValuesFrom :WorkType
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasCreator ;
+                        owl:someValuesFrom <https://w3id.org/italia/onto/l0/Agent>
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy> ;
+                        owl:allValuesFrom :WorkType
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasManifestation ;
+                        owl:allValuesFrom :WorkManifestation
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty TI:hasTemporalEntity ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                        owl:onClass TI:TemporalEntity
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/title> ;
+                        owl:someValuesFrom rdf:PlainLiteral
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty <https://w3id.org/italia/onto/l0/identifier> ;
+                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                      ] ;
+      rdfs:comment "A distinct intellectual or artistic creation. It is an abstract entity"@en ,
+                   "Una creazione intellettuale o artistica distinta. È un'entità astratta"@it ;
+      rdfs:label "Lavoro/Creazione Intellettuale"@it ,
+                 "Work"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/WorkManifestation
+:WorkManifestation rdf:type owl:Class ;
+                   rdfs:subClassOf <https://w3id.org/italia/onto/l0/Object> ;
+                   rdfs:comment "La realizzazione fisica di (un'espressione) di un'opera/lavoro."@it ,
+                                "The physical embodiment of (an expression) of a work."@en ;
+                   rdfs:label "Realizzazione Fisica Lavoro/Creazione Intellettuale"@it ,
+                              "Work Manifestation"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/WorkType
+:WorkType rdf:type owl:Class ;
+          rdfs:subClassOf <https://w3id.org/italia/onto/l0/Characteristic> ,
+                          <https://w3id.org/italia/onto/l0/Concept> ;
+          rdfs:label "Tipo di Lavoro"@it ,
+                     "Work Type"@en .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

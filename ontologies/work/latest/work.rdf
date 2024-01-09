@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/italia/republic-history/onto/work/"
+     xml:base="https://w3id.org/italia/republic-history/onto/work/"
+     xmlns:TI="https://w3id.org/italia/onto/TI/"
+     xmlns:l0="https://w3id.org/italia/onto/CPEV/"
+     xmlns:ns="http://www.w3.org/2006/vcard/ns#"
+     xmlns:l01="https://w3id.org/italia/onto/l0/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ADMS="https://w3id.org/italia/onto/ADMS/"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://w3id.org/italia/republic-history/onto/work">
+        <owl:versionIRI rdf:resource="https://w3id.org/italia/republic-history/onto/work/0.1"/>
+        <owl:imports rdf:resource="https://w3id.org/italia/onto/l0"/>
+        <terms:description xml:lang="it">Questa è l&apos;ontologia dei lavori definita nel contesto del progetto CNR portale delle fonti della storia della repubblica italiana. Con il termine lavori si intende l&apos;insieme delle opere create da persone ed esponenti politici. Esempi di lavori sono le risorse legali, i bollettini, i discorsi.</terms:description>
+        <terms:title xml:lang="en">Data Sources of the History of the Italian Republic -  Work Ontology</terms:title>
+        <terms:title xml:lang="it">Portale delle fonti della Storia della Repubblica Italiana - Ontologia dei Lavori</terms:title>
+        <owl:versionInfo xml:lang="it">Versione 0.1 - creazione dell&apos;ontologia</owl:versionInfo>
+        <ADMS:prefix>event</ADMS:prefix>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- https://w3id.org/italia/onto/TI/hasTemporalEntity -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/onto/TI/hasTemporalEntity"/>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext"/>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy"/>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/hasCreator -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/work/hasCreator">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/work/Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/onto/l0/Agent"/>
+        <rdfs:label xml:lang="it">ha creatore</rdfs:label>
+        <rdfs:label xml:lang="en">has creator</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/hasManifestation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/work/hasManifestation">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/work/Work"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/work/WorkManifestation"/>
+        <rdfs:label xml:lang="it">ha realizzazione fisica</rdfs:label>
+        <rdfs:label xml:lang="en">has manifestation</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/registeredIn -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/work/registeredIn">
+        <owl:inverseOf rdf:resource="https://w3id.org/italia/republic-history/onto/work/reportsSitting"/>
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/event/Sitting"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/work/Bulletin"/>
+        <rdfs:label xml:lang="en">registered in</rdfs:label>
+        <rdfs:label xml:lang="it">registrata in</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/reportsSitting -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/work/reportsSitting">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/work/Bulletin"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/event/Sitting"/>
+        <rdfs:label xml:lang="en">reports sitting</rdfs:label>
+        <rdfs:label xml:lang="it">riporta i dettagli seduta</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/title -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/title"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- https://w3id.org/italia/onto/TI/TemporalEntity -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/onto/TI/TemporalEntity"/>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/event/Legislature -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/event/Legislature"/>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/event/Sitting -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/event/Sitting"/>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/Bulletin -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/work/Bulletin">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/work/Work"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/work/reportsSitting"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/event/Sitting"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="it">Bollettino</rdfs:label>
+        <rdfs:label xml:lang="en">Bulletin</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/Work -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/work/Work">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/event/Legislature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/work/WorkType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/work/hasCreator"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/italia/onto/l0/Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/work/WorkType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/work/hasManifestation"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/work/WorkManifestation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/TI/hasTemporalEntity"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/italia/onto/TI/TemporalEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/title"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/l0/identifier"/>
+                <owl:cardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A distinct intellectual or artistic creation. It is an abstract entity</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una creazione intellettuale o artistica distinta. È un&apos;entità astratta</rdfs:comment>
+        <rdfs:label xml:lang="it">Lavoro/Creazione Intellettuale</rdfs:label>
+        <rdfs:label xml:lang="en">Work</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/WorkManifestation -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/work/WorkManifestation">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Object"/>
+        <rdfs:comment xml:lang="it">La realizzazione fisica di (un&apos;espressione) di un&apos;opera/lavoro.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The physical embodiment of (an expression) of a work.</rdfs:comment>
+        <rdfs:label xml:lang="it">Realizzazione Fisica Lavoro/Creazione Intellettuale</rdfs:label>
+        <rdfs:label xml:lang="en">Work Manifestation</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/WorkType -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/work/WorkType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Characteristic"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Concept"/>
+        <rdfs:label xml:lang="it">Tipo di Lavoro</rdfs:label>
+        <rdfs:label xml:lang="en">Work Type</rdfs:label>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
