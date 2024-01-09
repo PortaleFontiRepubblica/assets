@@ -1,0 +1,265 @@
+@prefix : <https://w3id.org/italian-republic-history/onto/event/> .
+@prefix TI: <https://w3id.org/italia/onto/TI/> .
+@prefix l0: <https://w3id.org/italia/onto/CPEV/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/italian-republic-history/onto/event> .
+
+<https://w3id.org/italian-republic-history/onto/event> rdf:type owl:Ontology ;
+                                                        owl:versionIRI <https://w3id.org/italian-republic-history/onto/event/0.1> ;
+                                                        owl:imports <https://w3id.org/italia/onto/CPEV> ;
+                                                        <http://purl.org/dc/terms/description> "Questa è l'ontologia degli eventi definita nel contesto del progetto CNR portale delle fonti della storia della repubblica italiana. Consente di modellare eventi di ogni tipo in questo contesto tra cui elezioni, discorsi, elezioni presidenziali, giuramenti, ecc."@it ;
+                                                        <http://purl.org/dc/terms/title> "Data Sources of the History of the Italian Republic -  Event Ontology"@en ,
+                                                                                         "Portale delle fonti della Storia della Repubblica Italiana - Ontologia degli Eventi"@it ;
+                                                        owl:versionInfo "Versione 0.1 - creazione dell'ontologia"@it ;
+                                                        <https://w3id.org/italia/onto/ADMS/prefix> "event" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/event/elects
+:elects rdf:type owl:ObjectProperty ;
+        rdfs:domain :Election ;
+        rdfs:range <https://w3id.org/italian-republic-history/onto/person/Person> ;
+        rdfs:label "elects"@en ,
+                   "elegge"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/enablesPoliticalMandate
+:enablesPoliticalMandate rdf:type owl:ObjectProperty ;
+                         owl:inverseOf :originatesFrom ;
+                         rdfs:domain :Election ;
+                         rdfs:range <https://w3id.org/italian-republic-history/onto/person/PoliticalMandate> ;
+                         rdfs:label "consente di ottenere mandato politico"@it ,
+                                    "enables political mandate"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/hasByElection
+:hasByElection rdf:type owl:ObjectProperty ;
+               rdfs:domain :PoliticalElection ;
+               rdfs:range :PoliticalElection ;
+               rdfs:label "ha elezione supplettiva"@it ,
+                          "has by.election"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/hasDeliveredSpeech
+:hasDeliveredSpeech rdf:type owl:ObjectProperty ;
+                    rdfs:domain :SpeechEvent ;
+                    rdfs:range <https://w3id.org/italian-republic-history/onto/speech/Speech> ;
+                    rdfs:label "ha discorso fatto"@it ,
+                               "has delivered speech"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/hasElectoralSystem
+:hasElectoralSystem rdf:type owl:ObjectProperty ;
+                    rdfs:domain :PoliticalElection ;
+                    rdfs:range :ElectoralSystem ;
+                    rdfs:label "ha sistema elettorale"@it ,
+                               "has electoral system"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/hasLegislature
+:hasLegislature rdf:type owl:ObjectProperty ;
+                rdfs:domain :PoliticalElection ;
+                rdfs:range :Legislature ;
+                rdfs:label "ha legislatura"@it ,
+                           "has legislature"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/houses
+:houses rdf:type owl:ObjectProperty ;
+        rdfs:domain <https://w3id.org/italian-republic-history/onto/org/Organisation> ;
+        rdfs:range l0:PublicEvent ;
+        rdfs:label "houses"@en ,
+                   "ospita"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/originatesFrom
+:originatesFrom rdf:type owl:ObjectProperty ;
+                rdfs:domain <https://w3id.org/italian-republic-history/onto/person/PoliticalMandate> ;
+                rdfs:range :Election ;
+                rdfs:label "ha origine da"@it ,
+                           "originates from"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/startsWith
+:startsWith rdf:type owl:ObjectProperty ;
+            rdfs:domain <https://w3id.org/italian-republic-history/onto/person/PoliticalMandate> ;
+            rdfs:range :Oath ;
+            rdfs:label "inizia con"@it ,
+                       "starts with"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/takenBy
+:takenBy rdf:type owl:ObjectProperty ;
+         rdfs:domain :Oath ;
+         rdfs:range <https://w3id.org/italian-republic-history/onto/person/Person> ;
+         rdfs:label "fatto da"@it ,
+                    "taken by"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/italia/onto/CPEV/name
+l0:name rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/legislatureNumber
+:legislatureNumber rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   rdfs:domain :Legislature ;
+                   rdfs:range rdfs:Literal ;
+                   rdfs:comment "Proprietà utilizzata per specificare il numero della legislatura, 1, 2, 16, ecc."@it ;
+                   rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                   rdfs:label "legislature number"@en ,
+                              "numero della legislatura"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/legislatureRomanNumber
+:legislatureRomanNumber rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        rdfs:domain :Legislature ;
+                        rdfs:range rdfs:Literal ;
+                        rdfs:comment "Proprietà utilizzata per specificare il numero romano della legislatura, I, II, XVI, ecc."@it ;
+                        rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+                        rdfs:label "legislature roman number"@en ,
+                                   "numero della legislatura romano"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/numberOfPolls
+:numberOfPolls rdf:type owl:DatatypeProperty ;
+               rdfs:domain :PresidentialElection ;
+               rdfs:range xsd:integer ;
+               rdfs:label "number of polls"@en ,
+                          "numero di scrutini"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/numberOfVotes
+:numberOfVotes rdf:type owl:DatatypeProperty ;
+               rdfs:domain :PresidentialElection ;
+               rdfs:range xsd:integer ;
+               rdfs:label "number of votes"@en ,
+                          "numero di voti"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/percentageOfVotes
+:percentageOfVotes rdf:type owl:DatatypeProperty ;
+                   rdfs:domain :PresidentialElection ;
+                   rdfs:range xsd:decimal ;
+                   rdfs:label "percentage of votes"@en ,
+                              "percentuale di voti"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/totalNumOfVotes
+:totalNumOfVotes rdf:type owl:DatatypeProperty ;
+                 rdfs:domain :PresidentialElection ;
+                 rdfs:range xsd:integer ;
+                 rdfs:label "numero totale di voti"@it ,
+                            "total number of votes"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://w3id.org/italian-republic-history/onto/event/Election
+:Election rdf:type owl:Class ;
+          rdfs:subClassOf l0:PublicEvent ;
+          rdfs:label "Election"@en ,
+                     "Elezione"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/ElectoralSystem
+:ElectoralSystem rdf:type owl:Class ;
+                 rdfs:subClassOf <https://w3id.org/italia/onto/l0/System> ;
+                 rdfs:label "Electoral System"@en ,
+                            "Sistema Elettorale"@it .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/Legislature
+:Legislature rdf:type owl:Class ;
+             rdfs:subClassOf <https://w3id.org/italia/onto/l0/EventOrSituation> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty TI:hasTemporalCoverage ;
+                               owl:someValuesFrom TI:TimeInterval
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty l0:name ;
+                               owl:someValuesFrom rdfs:Literal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty l0:name ;
+                               owl:allValuesFrom rdfs:Literal
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :legislatureNumber ;
+                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :legislatureRomanNumber ;
+                               owl:cardinality "1"^^xsd:nonNegativeInteger
+                             ] ;
+             rdfs:comment "La classe rappresenta il concetto di Legislatura ossia una situazione caratterizzata da un periodo temporale compreso fra le elezioni e lo scioglimento delle Camere. La legislatura si articola in sessioni e sedute"@it ;
+             rdfs:isDefinedBy <https://w3id.org/italian-republic-history/onto/person> ;
+             rdfs:label "Legislatura"@it ,
+                        "Legislature "@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/Oath
+:Oath rdf:type owl:Class ;
+      rdfs:subClassOf l0:PublicEvent ;
+      rdfs:label "Giuramento"@it ,
+                 "Oath"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/PoliticalElection
+:PoliticalElection rdf:type owl:Class ;
+                   rdfs:subClassOf :Election ;
+                   rdfs:label "Elezione Politica"@it ,
+                              "Political Election"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/PresidentialElection
+:PresidentialElection rdf:type owl:Class ;
+                      rdfs:subClassOf :Election ;
+                      rdfs:label "Elezione del Presidente"@it ,
+                                 "Presidenzial Election"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/PresidentialOath
+:PresidentialOath rdf:type owl:Class ;
+                  rdfs:subClassOf :Oath ;
+                  rdfs:label "Giuramento Presidenziale"@it ,
+                             "Presidential Oath"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/event/SpeechEvent
+:SpeechEvent rdf:type owl:Class ;
+             rdfs:subClassOf l0:PublicEvent ;
+             rdfs:label "Discorso"@it ,
+                        "Speech Event"@en .
+
+
+###  https://w3id.org/italian-republic-history/onto/org/Organisation
+<https://w3id.org/italian-republic-history/onto/org/Organisation> rdf:type owl:Class .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/Person
+<https://w3id.org/italian-republic-history/onto/person/Person> rdf:type owl:Class .
+
+
+###  https://w3id.org/italian-republic-history/onto/person/PoliticalMandate
+<https://w3id.org/italian-republic-history/onto/person/PoliticalMandate> rdf:type owl:Class .
+
+
+###  https://w3id.org/italian-republic-history/onto/speech/Speech
+<https://w3id.org/italian-republic-history/onto/speech/Speech> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
