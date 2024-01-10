@@ -1,0 +1,266 @@
+@prefix : <https://w3id.org/italia/republic-history/onto/speech/> .
+@prefix TI: <https://w3id.org/italia/onto/TI/> .
+@prefix l0: <https://w3id.org/italia/onto/CPEV/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/italia/republic-history/onto/speech/> .
+
+<https://w3id.org/italia/republic-history/onto/speech> rdf:type owl:Ontology ;
+                                                        owl:versionIRI <https://w3id.org/italia/republic-history/onto/speech/0.1> ;
+                                                        owl:imports <https://w3id.org/italia/republic-history/onto/work> ;
+                                                        <http://purl.org/dc/terms/description> "Questa è l'ontologia dei discorsi (in particolare dei presidenti della repubblica) definita nel contesto del progetto CNR portale delle fonti della storia della repubblica italiana."@it ;
+                                                        <http://purl.org/dc/terms/title> "Data Sources of the History of the Italian Republic -  Speech Ontology"@en ,
+                                                                                         "Portale delle fonti della Storia della Repubblica Italiana - Ontologia dei Discorsi"@it ;
+                                                        owl:versionInfo "Versione 0.1 - creazione dell'ontologia"@it ;
+                                                        <https://w3id.org/italia/onto/ADMS/prefix> "speech" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  https://w3id.org/italia/onto/ADMS/prefix
+<https://w3id.org/italia/onto/ADMS/prefix> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://w3id.org/arco/ontology/arco-lite/hasAuthor
+<https://w3id.org/arco/ontology/arco-lite/hasAuthor> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/onto/l0/hasMember
+<https://w3id.org/italia/onto/l0/hasMember> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/onto/l0/hasTopic
+<https://w3id.org/italia/onto/l0/hasTopic> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/onto/l0/isMemberOf
+<https://w3id.org/italia/onto/l0/isMemberOf> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext
+<https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext> rdf:type owl:ObjectProperty .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/hasRealization
+:hasRealization rdf:type owl:ObjectProperty ;
+                rdfs:domain :Speech ;
+                rdfs:range :SpeechEvent ;
+                rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+                rdfs:label "ha realizzazione"@it ,
+                           "has realization"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/isExemplifiedBy
+:isExemplifiedBy rdf:type owl:ObjectProperty ;
+                 rdfs:domain :SpeechDigitalResource ;
+                 rdfs:range :SpeechItem ;
+                 rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+                 rdfs:label "is exemplified by"@en ,
+                            "è rappresentata da"@it .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/ofAPoliticalFigure
+:ofAPoliticalFigure rdf:type owl:ObjectProperty ;
+                    rdfs:domain :SpeechCollection ;
+                    rdfs:range <https://w3id.org/italia/republic-history/onto/person/PoliticalMandate> ;
+                    rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+                    rdfs:label "di una figura politica"@it ,
+                               "of a political figure"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/speechText
+:speechText rdf:type owl:ObjectProperty ;
+            rdfs:domain :Speech ;
+            rdfs:range rdfs:PlainLiteral .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/hasManifestation
+<https://w3id.org/italia/republic-history/onto/work/hasManifestation> rdf:type owl:ObjectProperty .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://w3id.org/italia/republic-history/onto/IRHO/title
+<https://w3id.org/italia/republic-history/onto/IRHO/title> rdf:type owl:DatatypeProperty .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/page
+:page rdf:type owl:DatatypeProperty ;
+      rdfs:domain :SpeechDigitalResource ;
+      rdfs:range rdfs:Literal ;
+      rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+      rdfs:label "page"@en ,
+                 "pagina"@it .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/speechText
+:speechText rdf:type owl:DatatypeProperty .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://dati.beniculturali.it/cis/CulturalEntity
+<http://dati.beniculturali.it/cis/CulturalEntity> rdf:type owl:Class .
+
+
+###  http://www.w3.org/2000/01/rdf-schema#PlainLiteral
+rdfs:PlainLiteral rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/l0/Collection
+<https://w3id.org/italia/onto/l0/Collection> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/l0/Object
+<https://w3id.org/italia/onto/l0/Object> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/onto/l0/Topic
+<https://w3id.org/italia/onto/l0/Topic> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/event/Legislature
+<https://w3id.org/italia/republic-history/onto/event/Legislature> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/event/SpeechEvent
+<https://w3id.org/italia/republic-history/onto/event/SpeechEvent> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/person/Person
+<https://w3id.org/italia/republic-history/onto/person/Person> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/person/PoliticalMandate
+<https://w3id.org/italia/republic-history/onto/person/PoliticalMandate> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/Speech
+:Speech rdf:type owl:Class ;
+        rdfs:subClassOf <http://dati.beniculturali.it/cis/CulturalEntity> ,
+                        <https://w3id.org/italia/republic-history/onto/work/Work> ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <https://w3id.org/arco/ontology/arco-lite/hasAuthor> ;
+                          owl:allValuesFrom <https://w3id.org/italia/republic-history/onto/person/Person>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <https://w3id.org/italia/onto/l0/hasTopic> ;
+                          owl:allValuesFrom <https://w3id.org/italia/onto/l0/Topic>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :speechText ;
+                          owl:allValuesFrom rdfs:PlainLiteral
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <https://w3id.org/italia/republic-history/onto/work/hasManifestation> ;
+                          owl:allValuesFrom :SpeechDigitalResource
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <https://w3id.org/italia/onto/l0/isMemberOf> ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass :SpeechCollection
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasRealization ;
+                          owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:onClass <https://w3id.org/italia/republic-history/onto/event/SpeechEvent>
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/title> ;
+                          owl:someValuesFrom rdfs:Literal
+                        ] ;
+        rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+        rdfs:label "Discorso"@it ,
+                   "Speech"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/SpeechCollection
+:SpeechCollection rdf:type owl:Class ;
+                  rdfs:subClassOf <https://w3id.org/italia/onto/l0/Collection> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <https://w3id.org/italia/onto/l0/hasMember> ;
+                                    owl:someValuesFrom :Speech
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext> ;
+                                    owl:someValuesFrom <https://w3id.org/italia/republic-history/onto/event/Legislature>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext> ;
+                                    owl:allValuesFrom <https://w3id.org/italia/republic-history/onto/event/Legislature>
+                                  ] ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :ofAPoliticalFigure ;
+                                    owl:allValuesFrom <https://w3id.org/italia/republic-history/onto/person/PoliticalMandate>
+                                  ] ;
+                  rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+                  rdfs:label "Collezione di Discorsi"@it ,
+                             "Speech Collection"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/SpeechDigitalResource
+:SpeechDigitalResource rdf:type owl:Class ;
+                       rdfs:subClassOf <https://w3id.org/italia/republic-history/onto/work/WorkManifestation> ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :isExemplifiedBy ;
+                                         owl:allValuesFrom :SpeechItem
+                                       ] ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :page ;
+                                         owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ;
+                       rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+                       rdfs:label "Risorsa Digitale del Discorso"@it ,
+                                  "Speech Digital Resource"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/SpeechEvent
+:SpeechEvent rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/speech/SpeechItem
+:SpeechItem rdf:type owl:Class ;
+            rdfs:subClassOf <https://w3id.org/italia/onto/l0/Object> ;
+            rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+            rdfs:label "Elemento del Discorso"@it ,
+                       "Speech Item"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/Work
+<https://w3id.org/italia/republic-history/onto/work/Work> rdf:type owl:Class .
+
+
+###  https://w3id.org/italia/republic-history/onto/work/WorkManifestation
+<https://w3id.org/italia/republic-history/onto/work/WorkManifestation> rdf:type owl:Class .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+:speechText rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/speech> ;
+            rdfs:label "speech text"@en ,
+                       "testo del discorso"@it .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
