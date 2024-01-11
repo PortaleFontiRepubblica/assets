@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/italia/republic-history/onto/diary/"
+     xml:base="https://w3id.org/italia/republic-history/onto/diary/"
+     xmlns:TI="https://w3id.org/italia/onto/TI/"
+     xmlns:l0="https://w3id.org/italia/onto/CPEV/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ADMS="https://w3id.org/italia/onto/ADMS/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://w3id.org/italia/republic-history/onto/diary">
+        <owl:versionIRI rdf:resource="https://w3id.org/italia/republic-history/onto/diary/0.1"/>
+        <terms:description xml:lang="it">Questa è l&apos;ontologia dei discorsi (in particolare dei presidenti della repubblica) definita nel contesto del progetto CNR portale delle fonti della storia della repubblica italiana.</terms:description>
+        <terms:title xml:lang="en">Data Sources of the History of the Italian Republic -  Diary Ontology</terms:title>
+        <terms:title xml:lang="it">Portale delle fonti della Storia della Repubblica Italiana - Ontologia dei Diari storici</terms:title>
+        <owl:versionInfo xml:lang="it">Versione 0.1 - creazione dell&apos;ontologia</owl:versionInfo>
+        <ADMS:prefix>diary</ADMS:prefix>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- https://w3id.org/italia/onto/ADMS/prefix -->
+
+    <owl:AnnotationProperty rdf:about="https://w3id.org/italia/onto/ADMS/prefix"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/italia/onto/l0/hasMember -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/onto/l0/hasMember"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/hasPart"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/isPartOf"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/diary/hasAgenda -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/diary/hasAgenda">
+        <owl:inverseOf rdf:resource="https://w3id.org/italia/republic-history/onto/diary/isAgendaOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/diary/Agenda"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/diary"/>
+        <rdfs:label xml:lang="it">ha agenda</rdfs:label>
+        <rdfs:label xml:lang="en">has agenda</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/diary/isAgendaOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/diary/isAgendaOf">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/diary/Agenda"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/diary"/>
+        <rdfs:label xml:lang="en">is agenda of</rdfs:label>
+        <rdfs:label xml:lang="it">è agenda di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/title -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/arco/ontology/archive/ArchivalResource -->
+
+    <owl:Class rdf:about="https://w3id.org/arco/ontology/archive/ArchivalResource"/>
+    
+
+
+    <!-- https://w3id.org/italia/onto/CPEV/PublicEvent -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/onto/CPEV/PublicEvent"/>
+    
+
+
+    <!-- https://w3id.org/italia/onto/l0/Collection -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/onto/l0/Collection"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/diary/Agenda -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/diary/Agenda">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Collection"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/l0/hasMember"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/onto/CPEV/PublicEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/isPartOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/diary/Diary"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/diary/isAgendaOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/diary"/>
+        <rdfs:label xml:lang="en">Agenda</rdfs:label>
+        <rdfs:label xml:lang="it">Agenda</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/diary/Diary -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/diary/Diary">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/arco/ontology/archive/ArchivalResource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/event/Legislature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/hasPart"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/diary/Agenda"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/title"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/diary"/>
+        <rdfs:label xml:lang="it">Diario (storico)</rdfs:label>
+        <rdfs:label xml:lang="en">Diary</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/event/Legislature -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/event/Legislature"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/person/Person -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/person/Person"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+
