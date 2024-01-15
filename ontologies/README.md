@@ -19,6 +19,10 @@ L'ontologia rappresenta vari tipi di organizzazioni anche nel contesto costituzi
 
 Il modulo ontologico sulle persone consente di rappresentare persone con una certa rilevanza pubblica e con un mandato politico. All'interno dell'ontologia sono modellati i vari ruoli applicando design pattern noti e già presenti in ontologie relative nazionali.
 
+### [Ontologia degli eventi pubblici](https://w3id.org/italia/republic-history/onto/event)
+![Rappresentazione grafica dell'ontologia degli eventi](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/event/Grafici/event.png)
+
+Il modulo ontologico sugli eventi pubblici riutilizza quello nazionale per rappresentare eventi significativi del dominio del progetto. È infatti attraverso questo modulo che vengono modellati eventi quali l'elezione del Presidente della repubblica, il suo giuramento, eventuali sedute parlamentari con i vari discorsi, dibattiti.
 
 ## Licenza
 Tutti i moduli ontologici sono rilasciati secondo la licenza aperta Creative Commons Attribution 4.0.
