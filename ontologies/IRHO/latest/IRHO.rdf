@@ -22,18 +22,18 @@
     <owl:Ontology rdf:about="https://w3id.org/italia/republic-history/onto/IRHO">
         <owl:versionIRI rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/0.6"/>
         <owl:imports rdf:resource="https://w3id.org/arco/ontology/archive"/>
+        <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
         <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/diary"/>
         <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/event"/>
         <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/org"/>
         <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/person"/>
         <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/speech"/>
         <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/work"/>
-        <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
     </owl:Ontology>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -41,7 +41,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasContext -->
@@ -54,7 +54,7 @@
         <rdfs:label xml:lang="it">ha contesto</rdfs:label>
         <rdfs:label xml:lang="en">has context</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext -->
@@ -68,20 +68,22 @@
         <rdfs:label xml:lang="it">ha contesto legislativo</rdfs:label>
         <rdfs:label xml:lang="en">has legislature context</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasPart -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/hasPart">
         <owl:inverseOf rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/isPartOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/italia/onto/l0/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/italia/onto/l0/Entity"/>
+        <rdfs:comment xml:lang="it">Proprietà utilizzata per rappresentare entity più complesse formate da parti che sono a loro volta altre entità. Esempio: Nel contesto delle organizzazioni (politiche), il parlamento è un organo costituzionale con due parti la camera dei deputati e il senato della repubblica.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO"/>
         <rdfs:label xml:lang="it">ha parte</rdfs:label>
         <rdfs:label xml:lang="en">has part</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy -->
@@ -93,7 +95,7 @@
         <rdfs:label xml:lang="en">is classified by</rdfs:label>
         <rdfs:label xml:lang="it">è classificato da</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/isContextFor -->
@@ -105,7 +107,7 @@
         <rdfs:label xml:lang="en">is context for</rdfs:label>
         <rdfs:label xml:lang="it">è contesto per</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/isLegislatureContextFor -->
@@ -118,22 +120,24 @@
         <rdfs:label xml:lang="en">is legislature context for</rdfs:label>
         <rdfs:label xml:lang="it">è contesto legislativo per</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/isPartOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/isPartOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="https://w3id.org/italia/onto/l0/Entity"/>
         <rdfs:range rdf:resource="https://w3id.org/italia/onto/l0/Entity"/>
+        <rdfs:comment xml:lang="it">Proprietà inversa di&apos; ha parte&apos;.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO"/>
         <rdfs:label xml:lang="en">is part of</rdfs:label>
         <rdfs:label xml:lang="it">è parte di</rdfs:label>
     </owl:ObjectProperty>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Data properties
@@ -141,7 +145,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/shortName -->
@@ -153,7 +157,7 @@
         <rdfs:label xml:lang="it">nome breve</rdfs:label>
         <rdfs:label xml:lang="en">short name</rdfs:label>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/title -->
@@ -166,4 +170,8 @@
         <rdfs:label xml:lang="it">titolo</rdfs:label>
     </owl:DatatypeProperty>
 </rdf:RDF>
+
+
+
 <!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

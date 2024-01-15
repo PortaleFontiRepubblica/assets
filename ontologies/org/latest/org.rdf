@@ -82,9 +82,21 @@
     
 
 
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasPart -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/hasPart"/>
+    
+
+
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/isPartOf"/>
     
 
 
@@ -127,22 +139,6 @@
     
 
 
-    <!-- https://w3id.org/italia/republic-history/onto/org/hasPart -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/org/hasPart">
-        <owl:inverseOf rdf:resource="https://w3id.org/italia/republic-history/onto/org/isPartOf"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ReflexiveProperty"/>
-        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/org/Organisation"/>
-        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/org/Organisation"/>
-        <rdfs:comment xml:lang="it">Proprietà utilizzata per rappresentare organizzazioni più complesse formate da parti che sono a loro volta altre organizzazione. Esempio: Il parlamento è un organo costituzionale con due parti la camera dei deputati e il senato della repubblica.</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/org"/>
-        <rdfs:label xml:lang="it">ha parte</rdfs:label>
-        <rdfs:label xml:lang="en">has part</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://w3id.org/italia/republic-history/onto/org/hasPower -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/org/hasPower">
@@ -165,19 +161,6 @@
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/org"/>
         <rdfs:label xml:lang="en">is name in time of</rdfs:label>
         <rdfs:label xml:lang="it">è nome nel tempo di</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://w3id.org/italia/republic-history/onto/org/isPartOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/org/isPartOf">
-        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/org/Organisation"/>
-        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/org/Organisation"/>
-        <rdfs:comment xml:lang="it">Proprietà inversa di &apos;ha parte&apos;</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/political-org"/>
-        <rdfs:label xml:lang="en">is part of</rdfs:label>
-        <rdfs:label xml:lang="it">è parte di</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -208,6 +191,12 @@
     <!-- https://w3id.org/italia/onto/l0/name -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/italia/onto/l0/name"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/shortName -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/shortName"/>
     
 
 
@@ -247,30 +236,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://org.semanticweb.owlapi/error#Error2 -->
-
-    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error2"/>
-    
-
-
-    <!-- http://org.semanticweb.owlapi/error#Error3 -->
-
-    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error3"/>
-    
-
-
-    <!-- http://org.semanticweb.owlapi/error#Error4 -->
-
-    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error4"/>
-    
-
-
-    <!-- http://org.semanticweb.owlapi/error#Error5 -->
-
-    <owl:Class rdf:about="http://org.semanticweb.owlapi/error#Error5"/>
     
 
 
@@ -342,7 +307,6 @@
                 <owl:hasValue rdf:resource="https://w3id.org/italia/republic-history/onto/org/Cabinet"/>
             </owl:Restriction>
         </owl:equivalentClass>
-        <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error4"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/org/Organisation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -412,7 +376,6 @@
     <!-- https://w3id.org/italia/republic-history/onto/org/NameInTime -->
 
     <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/org/NameInTime">
-        <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error3"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/EventOrSituation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -454,7 +417,7 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Agent"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/org/hasPart"/>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/hasPart"/>
                 <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/org/Organisation"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -482,11 +445,11 @@
     <!-- https://w3id.org/italia/republic-history/onto/org/ParliamentaryGroup -->
 
     <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/org/ParliamentaryGroup">
-        <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error2"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Agent"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalAssociation"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/org/isPartOf"/>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/isPartOf"/>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/org/ConstitutionalBody"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -520,7 +483,7 @@
     <!-- https://w3id.org/italia/republic-history/onto/org/ParliamentaryOrgan -->
 
     <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/org/ParliamentaryOrgan">
-        <rdfs:subClassOf rdf:resource="http://org.semanticweb.owlapi/error#Error5"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Agent"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/org/InstitutionalBody"/>
         <rdfs:subClassOf>
             <owl:Restriction>
@@ -553,6 +516,12 @@
                 <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
             </owl:Restriction>
         </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/shortName"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <rdfs:comment xml:lang="it">La classe dei diversi organi parlamentari come per esempio la giunta per le elezioni, la commissione per la costituzione, la commissione per l&apos;esame dei disegni di legge, ecc.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/org"/>
         <rdfs:label xml:lang="it">Organo Parlamentare</rdfs:label>
@@ -564,6 +533,7 @@
     <!-- https://w3id.org/italia/republic-history/onto/org/ParliamentaryOrganType -->
 
     <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/org/ParliamentaryOrganType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Characteristic"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Concept"/>
     </owl:Class>
     
@@ -707,13 +677,13 @@
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </rdf:Description>
     <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </rdf:Description>
     
 

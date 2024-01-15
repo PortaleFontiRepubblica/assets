@@ -4,18 +4,18 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://w3id.org/italia/republic-history/onto/IRHO> .
+@base <https://w3id.org/italia/republic-history/onto/IRHO/> .
 
 <https://w3id.org/italia/republic-history/onto/IRHO> rdf:type owl:Ontology ;
-                                                       owl:versionIRI <https://w3id.org/italia/republic-history/onto/IRHO/0.6> ;
-                                                       owl:imports <https://w3id.org/italia/republic-history/onto/org> ,
-                                                                   <https://w3id.org/italia/republic-history/onto/person> ,
-                                                                   <https://w3id.org/italia/republic-history/onto/event> ,
-                                                                   <https://w3id.org/italia/republic-history/onto/work> ,
-                                                                   <https://w3id.org/arco/ontology/archive> ,
-                                                                   <https://w3id.org/italia/republic-history/onto/speech> ,
-                                                                   <https://w3id.org/italia/republic-history/onto/diary> ,
-                                                                   <https://w3id.org/italia/republic-history/onto/act> .
+                                                      owl:versionIRI <https://w3id.org/italia/republic-history/onto/IRHO/0.6> ;
+                                                      owl:imports <https://w3id.org/arco/ontology/archive> ,
+                                                                  <https://w3id.org/italia/republic-history/onto/act> ,
+                                                                  <https://w3id.org/italia/republic-history/onto/diary> ,
+                                                                  <https://w3id.org/italia/republic-history/onto/event> ,
+                                                                  <https://w3id.org/italia/republic-history/onto/org> ,
+                                                                  <https://w3id.org/italia/republic-history/onto/person> ,
+                                                                  <https://w3id.org/italia/republic-history/onto/speech> ,
+                                                                  <https://w3id.org/italia/republic-history/onto/work> .
 
 #################################################################
 #    Object Properties
@@ -24,72 +24,95 @@
 ###  https://w3id.org/italia/republic-history/onto/IRHO/hasContext
 :hasContext rdf:type owl:ObjectProperty ;
             owl:inverseOf :isContextFor ;
-            rdfs:label "has context"@en , "ha contesto"@it ;
-            rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
             rdfs:domain <https://w3id.org/italia/onto/l0/Entity> ;
-            rdfs:range <https://w3id.org/italia/onto/l0/EventOrSituation> .
+            rdfs:range <https://w3id.org/italia/onto/l0/EventOrSituation> ;
+            rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
+            rdfs:label "ha contesto"@it ,
+                       "has context"@en .
 
-###  https://w3id.org/italia/republic-history/onto/IRHO/hasPart
-:hasPart rdf:type owl:ObjectProperty ;
-            owl:inverseOf :isPartOf ;
-            rdfs:label "has part"@en , "ha parte"@it ;
-            rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
-            rdfs:domain <https://w3id.org/italia/onto/l0/Entity> ;
-            rdfs:range <https://w3id.org/italia/onto/l0/Entity> .
 
 ###  https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext
 :hasLegislatureContext rdf:type owl:ObjectProperty ;
                        rdfs:subPropertyOf :hasContext ;
                        owl:inverseOf :isLegislatureContextFor ;
-                       rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
-                       rdfs:label "has legislature context"@en , "ha contesto legislativo"@it ;
                        rdfs:domain owl:Thing ;
-                       rdfs:range <https://w3id.org/italian-republic-hystory/onto/event/Legislature> .
+                       rdfs:range <https://w3id.org/italian-republic-hystory/onto/event/Legislature> ;
+                       rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
+                       rdfs:label "ha contesto legislativo"@it ,
+                                  "has legislature context"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/IRHO/hasPart
+:hasPart rdf:type owl:ObjectProperty ;
+         owl:inverseOf :isPartOf ;
+         rdf:type owl:TransitiveProperty ;
+         rdfs:domain <https://w3id.org/italia/onto/l0/Entity> ;
+         rdfs:range <https://w3id.org/italia/onto/l0/Entity> ;
+         rdfs:comment "Proprietà utilizzata per rappresentare entity più complesse formate da parti che sono a loro volta altre entità. Esempio: Nel contesto delle organizzazioni (politiche), il parlamento è un organo costituzionale con due parti la camera dei deputati e il senato della repubblica."@it ;
+         rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
+         rdfs:label "ha parte"@it ,
+                    "has part"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy
+:isClassifiedBy rdf:type owl:ObjectProperty ;
+                rdfs:domain <https://w3id.org/italia/onto/l0/Entity> ;
+                rdfs:range <https://w3id.org/italia/onto/l0/Concept> ;
+                rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
+                rdfs:label "is classified by"@en ,
+                           "è classificato da"@it .
 
 
 ###  https://w3id.org/italia/republic-history/onto/IRHO/isContextFor
 :isContextFor rdf:type owl:ObjectProperty ;
-              rdfs:label "is context for"@en , "è contesto per"@it ;
-              rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
               rdfs:domain <https://w3id.org/italia/onto/l0/EventOrSituation> ;
-              rdfs:range <https://w3id.org/italia/onto/l0/Entity> .
-
-###  https://w3id.org/italia/republic-history/onto/IRHO/isPartOf
-:isPartOf rdf:type owl:ObjectProperty ;
-              rdfs:label "is part of"@en , "è parte di"@it ;
+              rdfs:range <https://w3id.org/italia/onto/l0/Entity> ;
               rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
-              rdfs:domain <https://w3id.org/italia/onto/l0/Entity> ;
-              rdfs:range <https://w3id.org/italia/onto/l0/Entity> .
-
+              rdfs:label "is context for"@en ,
+                         "è contesto per"@it .
 
 
 ###  https://w3id.org/italia/republic-history/onto/IRHO/isLegislatureContextFor
 :isLegislatureContextFor rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf :isContextFor ;
-                         rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
-                         rdfs:label "is legislature context for"@en , "è contesto legislativo per"@it ;
                          rdfs:domain <https://w3id.org/italian-republic-hystory/onto/event/Legislature> ;
-                         rdfs:range owl:Thing .
+                         rdfs:range owl:Thing ;
+                         rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
+                         rdfs:label "is legislature context for"@en ,
+                                    "è contesto legislativo per"@it .
 
-###  https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy
-:isClassifiedBy rdf:type owl:ObjectProperty ;
-                rdfs:domain <https://w3id.org/italia/onto/l0/Entity> ;
-                rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
-                rdfs:label "is classified by"@en , "è classificato da"@it ;
-                rdfs:range <https://w3id.org/italia/onto/l0/Concept> .
+
+###  https://w3id.org/italia/republic-history/onto/IRHO/isPartOf
+:isPartOf rdf:type owl:ObjectProperty ,
+                   owl:TransitiveProperty ;
+          rdfs:domain <https://w3id.org/italia/onto/l0/Entity> ;
+          rdfs:range <https://w3id.org/italia/onto/l0/Entity> ;
+          rdfs:comment "Proprietà inversa di' ha parte'."@it ;
+          rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
+          rdfs:label "is part of"@en ,
+                     "è parte di"@it .
+
+
+#################################################################
+#    Data properties
+#################################################################
 
 ###  https://w3id.org/italia/republic-history/onto/IRHO/shortName
 :shortName rdf:type owl:DatatypeProperty ;
-                rdfs:domain owl:Thing ;
-                rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
-                rdfs:label "short name"@en , "nome breve"@it ;
-                rdfs:range rdf:PlainLiteral .
+           rdfs:domain owl:Thing ;
+           rdfs:range rdf:PlainLiteral ;
+           rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
+           rdfs:label "nome breve"@it ,
+                      "short name"@en .
+
 
 ###  https://w3id.org/italia/republic-history/onto/IRHO/title
 :title rdf:type owl:DatatypeProperty ;
-                rdfs:domain owl:Thing ;
-                rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
-                rdfs:label "title"@en , "titolo"@it ;
-                rdfs:range rdfs:Literal .
+       rdfs:domain owl:Thing ;
+       rdfs:range rdfs:Literal ;
+       rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/IRHO> ;
+       rdfs:label "title"@en ,
+                  "titolo"@it .
 
-###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
