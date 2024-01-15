@@ -99,7 +99,7 @@
 pers:        https://w3id.org/italia/republic-history/onto/person/
 event:       https://w3id.org/italia/republic-history/onto/event/
 irho:         https://w3id.org/italia/republic-history/onto/IRHO/
-a-arc:       https://w3id.org/arco/ontology/archive/
+cis:           http://dati.beniculturali.it/cis/
 l0             https://w3id.org/italia/onto/l0/
 cpev:        https://w3id.org/italia/onto/CPEV/
 rdfs:         http://www.w3.org/2000/01/rdf-schema#</y:NodeLabel>
@@ -123,10 +123,10 @@ rdfs:         http://www.w3.org/2000/01/rdf-schema#</y:NodeLabel>
     <node id="n6">
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="44.0" width="193.4140625" x="42.36354573567701" y="169.0"/>
-          <y:Fill color="#00CCCC" transparent="false"/>
+          <y:Geometry height="44.0" width="145.140625" x="66.50026448567701" y="169.0"/>
+          <y:Fill color="#99CCFF" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="22.84375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="183.4140625" x="5.0" xml:space="preserve" y="10.578125">a-arc:ArchivalResource</y:NodeLabel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="16" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="22.84375" horizontalTextPosition="center" iconTextGap="4" modelName="internal" modelPosition="c" textColor="#000000" verticalTextPosition="bottom" visible="true" width="135.140625" x="5.0" xml:space="preserve" y="10.578125">cis:CulturalEntity</y:NodeLabel>
           <y:Shape type="roundrectangle"/>
         </y:ShapeNode>
       </data>

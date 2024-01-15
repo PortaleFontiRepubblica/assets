@@ -117,7 +117,7 @@ l0:PublicEvent rdf:type owl:Class .
 
 ###  https://w3id.org/italia/republic-history/onto/diary/Diary
 :Diary rdf:type owl:Class ;
-       rdfs:subClassOf <https://w3id.org/arco/ontology/archive/ArchivalResource> ,
+       rdfs:subClassOf <http://dati.beniculturali.it/cis/CulturalEntity> ,
                        [ rdf:type owl:Restriction ;
                          owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext> ;
                          owl:allValuesFrom <https://w3id.org/italia/republic-history/onto/event/Legislature>
