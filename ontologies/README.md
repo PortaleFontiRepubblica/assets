@@ -1,6 +1,6 @@
 # La rete di ontologie del progetto Portale delle Fonti della Storia della Repubblica Italiana
 
-## The IRHO Ontology
+## L'ontologia IRHO - Italian Republic History Ontology
 
 È il punto di entrata di tutta la rete in quanto importa tutti i moduli creati, aggiungendo proprietà generali come title, shortName, ecc.
 
