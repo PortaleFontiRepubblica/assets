@@ -1,0 +1,521 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/italia/republic-history/onto/act/"
+     xml:base="https://w3id.org/italia/republic-history/onto/act/"
+     xmlns:TI="https://w3id.org/italia/onto/TI/"
+     xmlns:l0="https://w3id.org/italia/onto/CPEV/"
+     xmlns:ns="http://www.w3.org/2006/vcard/ns#"
+     xmlns:l01="https://w3id.org/italia/onto/l0/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:ADMS="https://w3id.org/italia/onto/ADMS/"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://w3id.org/italia/republic-history/onto/act">
+        <owl:versionIRI rdf:resource="https://w3id.org/italia/republic-history/onto/act/0.1"/>
+        <owl:imports rdf:resource="https://w3id.org/italia/republic-history/onto/work"/>
+        <terms:description xml:lang="it">Questa è l&apos;ontologia defli atti definita nel contesto del progetto CNR portale delle fonti della storia della repubblica italiana. Con il termine atti si intende l&apos;insieme delle opere con valenza legale (risorse legali quali leggi, atti parlamentari, ecc.) create da persone ed esponenti politici.</terms:description>
+        <terms:title xml:lang="en">Data Sources of the History of the Italian Republic -  Act Ontology</terms:title>
+        <terms:title xml:lang="it">Portale delle fonti della Storia della Repubblica Italiana - Ontologia degli Atti (Risorse Legali)</terms:title>
+        <owl:versionInfo xml:lang="it">Versione 0.1 - creazione dell&apos;ontologia</owl:versionInfo>
+        <ADMS:prefix>act</ADMS:prefix>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/italia/onto/RO/hasRiT -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/onto/RO/hasRiT"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasContext -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/hasContext"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/hasLegislatureContext"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/byPerson -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/byPerson">
+        <owl:inverseOf rdf:resource="https://w3id.org/italia/republic-history/onto/act/issuesAct"/>
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/Issuing"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+        <rdfs:comment xml:lang="en">Property used to link the situation of an issuing of a legal act by the person who did it.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà che consente di collegare la situazione relativa all&apos;emanazione di un atto con valenza legale alla persona che l&apos;ha emanato.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">by person</rdfs:label>
+        <rdfs:label xml:lang="it">da persona</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/hasActSubType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/hasActSubType">
+        <owl:inverseOf rdf:resource="https://w3id.org/italia/republic-history/onto/act/isActSubTypeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/ActType"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/act/ActType"/>
+        <rdfs:comment xml:lang="en">Property used to create a hierarchy of act types. Used together with its inverse property is act sub-type of</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà utilizzata per creare una gerarchia di tipologie di atti. È usata con la sua inversa è sotto tipo di atto di.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="it">ha sotto tipo di atto</rdfs:label>
+        <rdfs:label xml:lang="en">has act sub-type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/hasFirstSigner -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/hasFirstSigner">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+        <rdfs:comment xml:lang="en">Property used to represent the first person who signed the act</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà utilizzata per rappresentare il primo firmatario di un atto.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="it">ha primo firmatario</rdfs:label>
+        <rdfs:label xml:lang="en">has first signer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/hasInitiativeType -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/hasInitiativeType">
+        <owl:inverseOf rdf:resource="https://w3id.org/italia/republic-history/onto/act/isInitiativeTypeOf"/>
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/act/InitiativeType"/>
+        <rdfs:comment xml:lang="en">Property used to represent the various typologies of initiatives of the laws.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà utilizzata per rappresentare la tipologia di iniziativa degli atti/leggi.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="it">ha tipologia di iniziativa</rdfs:label>
+        <rdfs:label xml:lang="en">has initiative type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/hasIssuer -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/hasIssuer">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+        <rdfs:comment xml:lang="en">Property used to represent the person who issued the act.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietù utilizzata per rappresentare la persona che ha emanato l&apos;atto.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="it">ha emanatore</rdfs:label>
+        <rdfs:label xml:lang="en">has issuer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/hasSigner -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/hasSigner">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+        <rdfs:comment xml:lang="en">Property used to represent the person(s) who signed of the act.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà utilizzata per rappresentare la/e persona/e che ha/hanno firmato l&apos;atto.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="it">ha firmatario</rdfs:label>
+        <rdfs:label xml:lang="en">has signer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/isActSubTypeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/isActSubTypeOf">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/ActType"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/act/ActType"/>
+        <rdfs:comment xml:lang="en">Inverse property of hasActSubType used to represent the hierarchy of the various types of acts.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà inversa di ha sotto tipo di atto, usata per rappresentare la gerarchia tra le varie tipologie di atti.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">is act sub-type of</rdfs:label>
+        <rdfs:label xml:lang="it">è sotto tipo di atto di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/isInitiativeTypeOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/isInitiativeTypeOf">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/InitiativeType"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+        <rdfs:comment xml:lang="en">Inverse property of has initiative type that can be used to obtainmore directly all acts from the types of initiative associated with them.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà inversa di ha tipo di iniziativa che può essere usata per ottenere in maniera più diretta tutti gli atti rispetto al tipo di iniziativa ad essi associata.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">is initiative type of</rdfs:label>
+        <rdfs:label xml:lang="it">è tipologia di iniziativa di</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/isSubjectToIssuing -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/isSubjectToIssuing">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/act/Issuing"/>
+        <rdfs:comment xml:lang="en">Property that enables an act/law to be linked to its enactment.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà che consente di collegare un atto/legge alla sua emanazione.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">is subject to issuing</rdfs:label>
+        <rdfs:label xml:lang="it">è soggetto a emanazione</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/issuesAct -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/issuesAct">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/act/Issuing"/>
+        <rdfs:comment xml:lang="en">Inverse property of &apos;by perso&apos;n that allows one to represent for each person the issuing situations in which that person was involved.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà inversa di &apos;da person&apos;a che permette di rappresentare per ogni persona le situazioni di emanazione di atti in cui è stata coinvolta.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="it">emana atto</rdfs:label>
+        <rdfs:label xml:lang="en">issues act</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/refersTo -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/act/refersTo">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+        <rdfs:comment xml:lang="en">Property used to link an act to another act with a generic reference relationship.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà utilizzata per collegare un atto a un altro atto con una relazione di riferimento generica.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">refers to</rdfs:label>
+        <rdfs:label xml:lang="it">si riferisce a</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/hasManifestation -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/work/hasManifestation"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/italia/onto/TI/date -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/italia/onto/TI/date"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/IRHO/title -->
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://w3id.org/italia/onto/RO/TimeIndexedRole -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/onto/RO/TimeIndexedRole"/>
+    
+
+
+    <!-- https://w3id.org/italia/onto/l0/EventOrSituation -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/onto/l0/EventOrSituation"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/Act -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/act/Act">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/act/LegalResource"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/hasIssuer"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/work/hasManifestation"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/act/ManifestationAct"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/RO/hasRiT"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/onto/RO/TimeIndexedRole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/act/ActType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/hasFirstSigner"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/hasInitiativeType"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/act/InitiativeType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/hasIssuer"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/hasSigner"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/refersTo"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/isSubjectToIssuing"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="https://w3id.org/italia/republic-history/onto/act/Issuing"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">Act with legal value. The definition of a deed includes any written document with legal value that can also certify, for example, the registration of activities of collegial and institutional bodies. Examples: a parliamentary act, but also a notarial act, etc. The act is associated with the type of initiative, has its own classification and typically a person who issues it and persons considered to be the first signers or signers of the act. The act can be liked together with other act (please sse the property refersTo to represent this relationship).</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un&apos;opera con valore legale. Rientra nella definizione di atto qualunque documento scritto con valore legale che possa anche certificare per esempio il resoconto di attività di organi collegiali e istituzionali. Esempi: un atto parlamentare, ma anche un atto notarile, ecc. L&apos;atto è associato al tipo di iniziativa, ha una sua classificazione e tipicamente una persona che lo emana e delle persone considerate primi firmatari o firmatari dell&apos;atto. Inoltre, l&apos;atto può essere legato ad altri atti (si veda la proprietà si riferisce a per rappresentare questa relazione).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">Act</rdfs:label>
+        <rdfs:label xml:lang="it">Atto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/ActType -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/act/ActType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/work/WorkType"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/isActSubTypeOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/act/ActType"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/l0/name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/l0/description"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A classification of the various typologies of acts.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una classificazione dei vari tipi di atti.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">Act Type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo di Atto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/InitiativeType -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/act/InitiativeType">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Concept"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/isInitiativeTypeOf"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/act/Act"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/l0/name"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/l0/description"/>
+                <owl:allValuesFrom rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">This is the type of initiative of acts with legal force (legislative initiative).  The initiative of laws belongs to the government, to each member of the Chambers and to the bodies and entities to which it is conferred by constitutional law.
+The people exercise the initiative for laws by means of the proposal by at least fifty thousand electors of a draft written in articles.</rdfs:comment>
+        <rdfs:comment xml:lang="it">È la tipologia di iniziativa degli atti con valore legale (iniziativa legislativa).  L&apos;iniziativa delle leggi appartiene al Governo, a ciascun membro delle Camere ed agli organi ed enti ai quali sia conferita da legge costituzionale.
+Il popolo esercita l&apos;iniziativa delle leggi, mediante la proposta da parte di almeno cinquantamila elettori di un progetto redatto in articoli.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">Iniziative Type</rdfs:label>
+        <rdfs:label xml:lang="it">Tipo di Iniziativa</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/Issuing -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/act/Issuing">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/EventOrSituation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/IRHO/hasContext"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/person/PoliticalMandate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/republic-history/onto/act/byPerson"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/italia/republic-history/onto/person/Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/italia/onto/TI/date"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#date"/>
+                            <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#dateTime"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:onDataRange>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A situation that represents the formal issuing of an act. This takes place on a certain date by a person in a certain (political) context.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Una situazione che rappresenta l&apos;emissione formale di un atto. Questa avviene in una certa data da parte di una persona in un certo contesto (politico).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="it">Emanazione</rdfs:label>
+        <rdfs:label xml:lang="en">Issuing</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/LegalResource -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/act/LegalResource">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/work/Work"/>
+        <rdfs:comment xml:lang="en">A work in a legislative corpus. This applies to acts that have been legally enacted independently of the fact thay are still in force or not. A legal resource can also represent any component of a legal act, like an article.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Un&apos;opera/lavoro di un corpus legislativo. Rientrano in questa classe tutti gli atti che sono stati legalmente emanati, indipendentemente dal fatto che siano ancora in vigore o meno. Una risorsa giuridica può anche rappresentare qualsiasi componente di un atto giuridico, come un articolo.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">Legal Resource</rdfs:label>
+        <rdfs:label xml:lang="it">Risorsa Legale</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/act/ManifestationAct -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/act/ManifestationAct">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/work/WorkManifestation"/>
+        <rdfs:comment xml:lang="it">Si tratta della versione fisica dell&apos;Atto, in formato cartaceo o elettronico.</rdfs:comment>
+        <rdfs:comment xml:lang="en">The physical embodiment of the Act, either in paper or in electronic format.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/act"/>
+        <rdfs:label xml:lang="en">Manifestation Act</rdfs:label>
+        <rdfs:label xml:lang="it">Realizzazione Fisica dell&apos;Atto</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/event/Legislature -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/event/Legislature"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/event/Sitting -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/event/Sitting"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/person/Person -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/person/Person"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/person/PoliticalMandate -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/person/PoliticalMandate"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/Work -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/work/Work"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/WorkManifestation -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/work/WorkManifestation"/>
+    
+
+
+    <!-- https://w3id.org/italia/republic-history/onto/work/WorkType -->
+
+    <owl:Class rdf:about="https://w3id.org/italia/republic-history/onto/work/WorkType"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

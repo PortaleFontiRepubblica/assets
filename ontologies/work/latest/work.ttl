@@ -131,7 +131,7 @@ TI:TemporalEntity rdf:type owl:Class .
                       ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty <https://w3id.org/italia/republic-history/onto/IRHO/title> ;
-                        owl:someValuesFrom rdf:PlainLiteral
+                        owl:someValuesFrom rdfs:Literal
                       ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty <https://w3id.org/italia/onto/l0/identifier> ;
