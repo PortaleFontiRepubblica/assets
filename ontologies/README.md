@@ -22,6 +22,8 @@ Il modulo ontologico sulle persone consente di rappresentare persone con una cer
 ### [Ontologia degli eventi pubblici](https://w3id.org/italia/republic-history/onto/event)
 ![Rappresentazione grafica dell'ontologia degli eventi](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/event/Grafici/event.png)
 
+![Rappresentazione grafica dell'ontologia degli eventi](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/event/Grafici/sitting-debate-discussion/sitting-debate-discussion.png)
+
 Il modulo ontologico sugli eventi pubblici riutilizza quello nazionale per rappresentare eventi significativi del dominio del progetto. È infatti attraverso questo modulo che vengono modellati eventi quali l'elezione del Presidente della repubblica, il suo giuramento, eventuali sedute parlamentari con i vari discorsi, dibattiti.
 
 ## Licenza
