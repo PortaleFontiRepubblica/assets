@@ -38,11 +38,28 @@ Il modulo ontologico degli archivi del portale è stato integrato pienamente nel
 Il modulo ontologico dei lavori è un modulo di meta livello creato per racchiudere in concetti più astratti, e principalmente derivati dal modello FRBR - Functional Requirements for Bibliographic Records a cui il modulo si allinea semanticamente, una serie di elementi del dominio riconducibili a lavori creativi, o documentazione creata dai rappresentanti di quell'epoca, e alle loro rappresentazioni fisiche.
 In particolare, è attraverso questo modulo che vengono poi creati e tenuti insieme concetti specifici (e.g., i bollettini redatti a seguito di sedute parlamentari) e moduli ontologici specifici relativi a discorsi (e.g., specifici discorsi dei presidenti della repubblica) e gli atti con valenza legale/leggi.
 
-### [Ontologia dei lavori (creativi)](https://w3id.org/italia/republic-history/onto/work)
-![Rappresentazione grafica dell'ontologia dei lavori (creativi)](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/work/Grafici/work.png)
+### [Ontologia dei discorsi](https://w3id.org/italia/republic-history/onto/speech)
+![Rappresentazione grafica dell'ontologia dei lavori (creativi)](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/speech/Grafici/speech.png)
 
-Il modulo ontologico dei lavori è un modulo di meta livello creato per racchiudere in concetti più astratti, e principalmente derivati dal modello FRBR - Functional Requirements for Bibliographic Records a cui il modulo si allinea semanticamente, una serie di elementi del dominio riconducibili a lavori creativi, o documentazione creata dai rappresentanti di quell'epoca, e alle loro rappresentazioni fisiche.
-In particolare, è attraverso questo modulo che vengono poi creati e tenuti insieme moduli ontologici specifici relativi ai bollettini (e.g., i bollettini del senato), i discorsi (e.g., specifici discorsi dei presidenti della repubblica), gli atti con valenza legale/leggi.
+Il modulo ontologico dei discorsi consente di modellare discorsi di persone tenutisi in eventi specifici, in un certo contesto istituzionale. Il modulo consente anche di rappresentare le relative risorse digitali intese come rappresentazioni fisiche del discorso stesso.
+
+### [Ontologia dei atti/leggi](https://w3id.org/italia/republic-history/onto/act)
+![Rappresentazione grafica dell'ontologia dei lavori (creativi)](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/act/Grafici/act.png)
+
+Il modulo ontologico degli atti consente di modellare atti e leggi con tutte le informazioni relative anche la loro emanazione, i.e., contesto, periodo temporale, persone coinvolte. Il modulo definisce un concetto di Risorsa Legale che è analogo a quello definito in ambito europeo nell'ontologia ELI - European Legal Identifier e usata per la definizione di URL permanenti dalla Gazzetta Ufficiale.
+La Risorsa Legale potrebbe essere anche un singola componente di una risorsa legale più ampio, per esempio un singolo articolo di una legge.
+
+### [Ontologia dei diari storici](https://w3id.org/italia/republic-history/onto/diary)
+![Rappresentazione grafica dell'ontologia dei diari (storici)](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/diary/Grafici/diary.png)
+
+Il modulo ontologico dei diari storici consente di rappresentare tutta quella documentazione relativa ai diari, per esempio i diari dei presidenti della Repubblica. Nel modulo ontologico proposto il diaro è un entità culturale, quindi del patrimonio culturale, composto da un'agenda, intesa come collezione di eventi pubblici.
+
+
+### [Ontologia dei diari storici](https://w3id.org/italia/republic-history/onto/project)
+![Rappresentazione grafica dell'ontologia dei diari (storici)](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/project/Grafici/project.png)
+
+Il modulo ontologico dei progetti non è stato definito nel contesto del progetto del portale delle fonti della storia della repubblica italiana. Per i requisiti incontrati nelle fasi progettuali infatti, quanto già disponibile a livello nazionale era più che sufficiente per poter rappresentare tutte le informazioni sui progetti. Grazie anche al riutilizzo, in certi casi diretto delle ontologie nazionali, questo ci ha consentito di predisporre un modulo sui progetti che ben si integra anche con gli altri moduli ontologici qui presentati (e.g., risorse archivistiche, agenti, organizzazioni). 
+
 
 ## Licenza
 Tutti i moduli ontologici sono rilasciati secondo la licenza aperta Creative Commons Attribution 4.0.
