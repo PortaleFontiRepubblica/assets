@@ -32,6 +32,17 @@ Il modulo ontologico sugli eventi pubblici riutilizza quello nazionale per rappr
 Il modulo ontologico degli archivi del portale è stato integrato pienamente nella rete di ontologie ArCo del Ministero della Cultura. È pertanto mantenuto in quel contesto. Essendo integrato in quella rete riutilizza tutti gli elementi indipendenti dallo specifico dominio (e.g., date, luoghi, responsabilità) che si trovano in ArCo aggiungendo elementi specifici degli archivi, e.g., il concetto di ArchivalResource e ArchivalResourceCollection, la gerarchia archivistica.
 
 
+### [Ontologia dei lavori (creativi)](https://w3id.org/italia/republic-history/onto/work)
+![Rappresentazione grafica dell'ontologia dei lavori (creativi)](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/work/Grafici/work.png)
+
+Il modulo ontologico dei lavori è un modulo di meta livello creato per racchiudere in concetti più astratti, e principalmente derivati dal modello FRBR - Functional Requirements for Bibliographic Records a cui il modulo si allinea semanticamente, una serie di elementi del dominio riconducibili a lavori creativi, o documentazione creata dai rappresentanti di quell'epoca, e alle loro rappresentazioni fisiche.
+In particolare, è attraverso questo modulo che vengono poi creati e tenuti insieme concetti specifici (e.g., i bollettini redatti a seguito di sedute parlamentari) e moduli ontologici specifici relativi a discorsi (e.g., specifici discorsi dei presidenti della repubblica) e gli atti con valenza legale/leggi.
+
+### [Ontologia dei lavori (creativi)](https://w3id.org/italia/republic-history/onto/work)
+![Rappresentazione grafica dell'ontologia dei lavori (creativi)](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/work/Grafici/work.png)
+
+Il modulo ontologico dei lavori è un modulo di meta livello creato per racchiudere in concetti più astratti, e principalmente derivati dal modello FRBR - Functional Requirements for Bibliographic Records a cui il modulo si allinea semanticamente, una serie di elementi del dominio riconducibili a lavori creativi, o documentazione creata dai rappresentanti di quell'epoca, e alle loro rappresentazioni fisiche.
+In particolare, è attraverso questo modulo che vengono poi creati e tenuti insieme moduli ontologici specifici relativi ai bollettini (e.g., i bollettini del senato), i discorsi (e.g., specifici discorsi dei presidenti della repubblica), gli atti con valenza legale/leggi.
 
 ## Licenza
 Tutti i moduli ontologici sono rilasciati secondo la licenza aperta Creative Commons Attribution 4.0.
