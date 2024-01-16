@@ -27,6 +27,11 @@ Il modulo ontologico sulle persone consente di rappresentare persone con una cer
 Il modulo ontologico sugli eventi pubblici riutilizza quello nazionale per rappresentare eventi significativi del dominio del progetto. È infatti attraverso questo modulo che vengono modellati eventi quali l'elezione del Presidente della repubblica, il suo giuramento, eventuali sedute parlamentari con i vari discorsi, dibattiti.
 
 ### [Ontologia degli archivi](https://w3id.org/arco/ontology/archive)
+![Rappresentazione grafica dell'ontologia degli eventi](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/archive/Grafici/archive.png)
+
+Il modulo ontologico degli archivi del portale è stato integrato pienamente nella rete di ontologie ArCo del Ministero della Cultura. È pertanto mantenuto in quel contesto. Essendo integrato in quella rete riutilizza tutti gli elementi indipendenti dallo specifico dominio (e.g., date, luoghi, responsabilità) che si trovano in ArCo aggiungendo elementi specifici degli archivi, e.g., il concetto di ArchivalResource e ArchivalResourceCollection, la gerarchia archivistica.
+
+
 
 ## Licenza
 Tutti i moduli ontologici sono rilasciati secondo la licenza aperta Creative Commons Attribution 4.0.
