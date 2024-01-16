@@ -55,10 +55,10 @@ La Risorsa Legale potrebbe essere anche un singola componente di una risorsa leg
 Il modulo ontologico dei diari storici consente di rappresentare tutta quella documentazione relativa ai diari, per esempio i diari dei presidenti della Repubblica. Nel modulo ontologico proposto il diaro è un entità culturale, quindi del patrimonio culturale, composto da un'agenda, intesa come collezione di eventi pubblici.
 
 
-### [Ontologia dei diari storici](https://w3id.org/italia/republic-history/onto/project)
-![Rappresentazione grafica dell'ontologia dei diari (storici)](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/project/Grafici/project.png)
+### [Ontologia dei progetti](https://w3id.org/italia/onto/project)
+![Rappresentazione grafica dell'ontologia dei progetti](https://raw.githubusercontent.com/PortaleFontiRepubblica/assets/main/ontologies/project/project.png)
 
-Il modulo ontologico dei progetti non è stato definito nel contesto del progetto del portale delle fonti della storia della repubblica italiana. Per i requisiti incontrati nelle fasi progettuali infatti, quanto già disponibile a livello nazionale era più che sufficiente per poter rappresentare tutte le informazioni sui progetti. Grazie anche al riutilizzo, in certi casi diretto delle ontologie nazionali, questo ci ha consentito di predisporre un modulo sui progetti che ben si integra anche con gli altri moduli ontologici qui presentati (e.g., risorse archivistiche, agenti, organizzazioni). 
+Il modulo ontologico dei progetti non è stato definito nel contesto del progetto del portale delle fonti della storia della repubblica italiana. Per i requisiti incontrati nelle fasi progettuali infatti, quanto già disponibile a livello nazionale era più che sufficiente per poter rappresentare tutte le informazioni sui progetti. Grazie anche al riutilizzo, in certi casi diretto delle ontologie nazionali, questo ci ha consentito di predisporre un modulo sui progetti che ben si integra anche con gli altri moduli ontologici qui presentati (e.g., risorse archivistiche, agenti, organizzazioni).
 
 
 ## Licenza
