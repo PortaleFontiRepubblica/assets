@@ -65,12 +65,23 @@ TI:hasTemporalCoverage rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/italia/republic-history/onto/org/hasHeadOfCabinet
 :hasHeadOfCabinet rdf:type owl:ObjectProperty ;
+                  owl:inverseOf :isHeadOfCabinetOf ;
                   rdfs:domain :Cabinet ;
                   rdfs:range <https://w3id.org/italia/republic-history/person/Person> ;
                   rdfs:comment "Proprietà utilizzata per ottenere la persona a capo del governo"@it ;
                   rdfs:isDefinedBy <https://w3id.org/italia/republic-history/org> ;
                   rdfs:label "ha capo di governo"@it ,
                              "has head of cabinet"@it .
+
+###  https://w3id.org/italia/republic-history/onto/org/isHeadOfCabinetOf
+:isHeadOfCabinetOf rdf:type owl:ObjectProperty ;
+                   rdfs:range :Cabinet ;
+                   rdfs:domain <https://w3id.org/italia/republic-history/person/Person> ;
+                   rdfs:isDefinedBy <https://w3id.org/italia/republic-history/org> ;
+                   rdfs:comment "Proprietà inversa di 'ha capo di governo' usata per collegare la persona al governo di cui è a capo"@it ;
+                   rdfs:label "è capo di governo di"@it ,
+                              "is head of cabinet of"@it .
+
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/hasNameInTime
