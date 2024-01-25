@@ -21,10 +21,10 @@
         <owl:versionInfo xml:lang="it">Versione 0.3 - Aggiunta di nuove classi per la gestione degli organi parlamentari come le commissioni. Revisionati gli URI per aderire al framework nazionale w3id.org/italia.</owl:versionInfo>
         <ADMS:prefix>org</ADMS:prefix>
     </owl:Ontology>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
@@ -32,40 +32,40 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- http://purl.org/dc/terms/description -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/description"/>
-
+    
 
 
     <!-- http://purl.org/dc/terms/title -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
-
+    
 
 
     <!-- http://www.w3.org/2002/07/owl#maxCardinality -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#maxCardinality"/>
-
+    
 
 
     <!-- http://www.w3.org/2002/07/owl#qualifiedCardinality -->
 
     <owl:AnnotationProperty rdf:about="http://www.w3.org/2002/07/owl#qualifiedCardinality"/>
-
+    
 
 
     <!-- https://w3id.org/italia/onto/ADMS/prefix -->
 
     <owl:AnnotationProperty rdf:about="https://w3id.org/italia/onto/ADMS/prefix"/>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -73,31 +73,31 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://w3id.org/italia/onto/TI/hasTemporalCoverage -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/onto/TI/hasTemporalCoverage"/>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/hasPart -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/hasPart"/>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/isClassifiedBy"/>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/isPartOf -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/isPartOf"/>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/hasHeadOfCabinet -->
@@ -109,20 +109,9 @@
         <rdfs:comment xml:lang="it">Proprietà utilizzata per ottenere la persona a capo del governo</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/org"/>
         <rdfs:label xml:lang="it">ha capo di governo</rdfs:label>
-        <rdfs:label xml:lang="it">has head of cabinet</rdfs:label>
+        <rdfs:label xml:lang="en">has head of cabinet</rdfs:label>
     </owl:ObjectProperty>
-
-    <!-- https://w3id.org/italia/republic-history/onto/org/isHeadOfCabinetOf -->
-
-    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/org/isHeadOfCabinetOf">
-        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/org/Cabinet"/>
-        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/person/Person"/>
-        <rdfs:comment xml:lang="it">Proprietà inversa di ha capo di governo usata per collegare la persona al governo di cui è a capo</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/org"/>
-        <rdfs:label xml:lang="it">è capo di governo di</rdfs:label>
-        <rdfs:label xml:lang="it">is head of cabinet of</rdfs:label>
-    </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/hasNameInTime -->
@@ -136,7 +125,7 @@
         <rdfs:label xml:lang="it">ha nome nel tempo</rdfs:label>
         <rdfs:label xml:lang="en">has name in time</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/hasOrgType -->
@@ -148,7 +137,7 @@
         <rdfs:label xml:lang="it">ha tipo organizzazione</rdfs:label>
         <rdfs:label xml:lang="en">has organisation type</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/hasPower -->
@@ -161,7 +150,20 @@
         <rdfs:label xml:lang="it">esercita potere</rdfs:label>
         <rdfs:label xml:lang="en">has power</rdfs:label>
     </owl:ObjectProperty>
+    
 
+
+    <!-- https://w3id.org/italia/republic-history/onto/org/isHeadOfCabinetOf -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/org/isHeadOfCabinetOf">
+        <rdfs:domain rdf:resource="https://w3id.org/italia/republic-history/person/Person"/>
+        <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/org/Cabinet"/>
+        <rdfs:comment xml:lang="it">Proprietà inversa di &apos;ha capo di governo&apos; usata per collegare la persona al governo di cui è a capo</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/org"/>
+        <rdfs:label xml:lang="en">is head of cabinet of</rdfs:label>
+        <rdfs:label xml:lang="it">è capo di governo di</rdfs:label>
+    </owl:ObjectProperty>
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/isNameInTimeFor -->
@@ -174,16 +176,16 @@
         <rdfs:label xml:lang="en">is name in time of</rdfs:label>
         <rdfs:label xml:lang="it">è nome nel tempo di</rdfs:label>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://w3id.org/italian-republic-hystory/onto/irho/hasLegislatureContext -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italian-republic-hystory/onto/irho/hasLegislatureContext"/>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Data properties
@@ -191,25 +193,25 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://w3id.org/italia/onto/l0/description -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/italia/onto/l0/description"/>
-
+    
 
 
     <!-- https://w3id.org/italia/onto/l0/name -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/italia/onto/l0/name"/>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/IRHO/shortName -->
 
     <owl:DatatypeProperty rdf:about="https://w3id.org/italia/republic-history/onto/IRHO/shortName"/>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/lastParliamentaryGroupName -->
@@ -223,7 +225,7 @@
         <rdfs:label xml:lang="en">last parliamentary group name</rdfs:label>
         <rdfs:label xml:lang="it">ultima denominazione del gruppo parlamentare</rdfs:label>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/parliamentaryGroupName -->
@@ -237,10 +239,10 @@
         <rdfs:label xml:lang="it">nome del gruppo parlamentare</rdfs:label>
         <rdfs:label xml:lang="en">parliamentary group name</rdfs:label>
     </owl:DatatypeProperty>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -248,49 +250,49 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://w3id.org/italia/onto/COV/Group -->
 
     <owl:Class rdf:about="https://w3id.org/italia/onto/COV/Group"/>
-
+    
 
 
     <!-- https://w3id.org/italia/onto/COV/PublicOrganization -->
 
     <owl:Class rdf:about="https://w3id.org/italia/onto/COV/PublicOrganization"/>
-
+    
 
 
     <!-- https://w3id.org/italia/onto/TI/TemporalEntity -->
 
     <owl:Class rdf:about="https://w3id.org/italia/onto/TI/TemporalEntity"/>
-
+    
 
 
     <!-- https://w3id.org/italia/onto/l0/Agent -->
 
     <owl:Class rdf:about="https://w3id.org/italia/onto/l0/Agent"/>
-
+    
 
 
     <!-- https://w3id.org/italia/onto/l0/Characteristic -->
 
     <owl:Class rdf:about="https://w3id.org/italia/onto/l0/Characteristic"/>
-
+    
 
 
     <!-- https://w3id.org/italia/onto/l0/Concept -->
 
     <owl:Class rdf:about="https://w3id.org/italia/onto/l0/Concept"/>
-
+    
 
 
     <!-- https://w3id.org/italia/onto/l0/EventOrSituation -->
 
     <owl:Class rdf:about="https://w3id.org/italia/onto/l0/EventOrSituation"/>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/Assembly -->
@@ -307,7 +309,7 @@
         <owl:disjointWith rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalAssociation"/>
         <owl:disjointWith rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalGroup"/>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/Cabinet -->
@@ -331,7 +333,7 @@
         <owl:disjointWith rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalAssociation"/>
         <owl:disjointWith rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalGroup"/>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/ConstitutionalBody -->
@@ -346,7 +348,7 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/org/GovernmentBody"/>
         <owl:disjointWith rdf:resource="https://w3id.org/italia/republic-history/onto/org/InstitutionalBody"/>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/GovernmentBody -->
@@ -368,7 +370,7 @@
         <rdfs:label xml:lang="en">Government Body</rdfs:label>
         <rdfs:label xml:lang="it">Organo dello Stato</rdfs:label>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/InstitutionalBody -->
@@ -382,7 +384,7 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/org/GovernmentBody"/>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/NameInTime -->
@@ -407,7 +409,7 @@
         <rdfs:label xml:lang="en">Name in Time</rdfs:label>
         <rdfs:label xml:lang="it">Nome nel tempo</rdfs:label>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/OrgType -->
@@ -420,7 +422,7 @@
         <rdfs:label xml:lang="en">Political Organisation Type</rdfs:label>
         <rdfs:label xml:lang="it">Tipo Organizzazione Politica</rdfs:label>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/Organisation -->
@@ -451,7 +453,7 @@
         <rdfs:label xml:lang="en">Organisation</rdfs:label>
         <rdfs:label xml:lang="it">Organizzazione</rdfs:label>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/ParliamentaryGroup -->
@@ -489,7 +491,7 @@
         <rdfs:label xml:lang="it">Gruppo Parlamentare</rdfs:label>
         <rdfs:label xml:lang="en">Parliamentary Group</rdfs:label>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/ParliamentaryOrgan -->
@@ -539,7 +541,7 @@
         <rdfs:label xml:lang="it">Organo Parlamentare</rdfs:label>
         <rdfs:label xml:lang="en">Parliamentary Organ</rdfs:label>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/ParliamentaryOrganType -->
@@ -548,7 +550,7 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Characteristic"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/l0/Concept"/>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/PoliticalAssociation -->
@@ -563,7 +565,7 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/org/Organisation"/>
         <owl:disjointWith rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalGroup"/>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/PoliticalGroup -->
@@ -578,7 +580,7 @@
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/onto/COV/Group"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/italia/republic-history/onto/org/Organisation"/>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/PoliticalPower -->
@@ -590,22 +592,22 @@
         <rdfs:label xml:lang="en">Political Power</rdfs:label>
         <rdfs:label xml:lang="it">Potere dello Stato</rdfs:label>
     </owl:Class>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/person/Person -->
 
     <owl:Class rdf:about="https://w3id.org/italia/republic-history/person/Person"/>
-
+    
 
 
     <!-- https://w3id.org/italian-republic-hystory/onto/event/Legislature -->
 
     <owl:Class rdf:about="https://w3id.org/italian-republic-hystory/onto/event/Legislature"/>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Individuals
@@ -613,7 +615,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/Assembly -->
@@ -621,7 +623,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/Assembly">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/OrgType"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/Cabinet -->
@@ -629,7 +631,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/Cabinet">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/OrgType"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/ConstitutionalBody -->
@@ -637,7 +639,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/ConstitutionalBody">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/OrgType"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/Executive -->
@@ -645,7 +647,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/Executive">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalPower"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/InstitutionalBody -->
@@ -653,7 +655,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/InstitutionalBody">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/OrgType"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/Judicial -->
@@ -661,7 +663,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/Judicial">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalPower"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/Legislative -->
@@ -669,7 +671,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/Legislative">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/PoliticalPower"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/PoliticalAssociation -->
@@ -677,7 +679,7 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/PoliticalAssociation">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/OrgType"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://w3id.org/italia/republic-history/onto/org/PoliticalGroup -->
@@ -685,9 +687,6 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/PoliticalGroup">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/OrgType"/>
     </owl:NamedIndividual>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
     <rdf:Description>
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
     </rdf:Description>
@@ -697,10 +696,13 @@
     <rdf:Description>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
     </rdf:Description>
+    <rdf:Description>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+    </rdf:Description>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotations
@@ -750,3 +752,4 @@
 
 
 <!-- Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi -->
+

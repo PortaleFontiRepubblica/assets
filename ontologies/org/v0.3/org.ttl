@@ -71,17 +71,7 @@ TI:hasTemporalCoverage rdf:type owl:ObjectProperty .
                   rdfs:comment "Proprietà utilizzata per ottenere la persona a capo del governo"@it ;
                   rdfs:isDefinedBy <https://w3id.org/italia/republic-history/org> ;
                   rdfs:label "ha capo di governo"@it ,
-                             "has head of cabinet"@it .
-
-###  https://w3id.org/italia/republic-history/onto/org/isHeadOfCabinetOf
-:isHeadOfCabinetOf rdf:type owl:ObjectProperty ;
-                   rdfs:range :Cabinet ;
-                   rdfs:domain <https://w3id.org/italia/republic-history/person/Person> ;
-                   rdfs:isDefinedBy <https://w3id.org/italia/republic-history/org> ;
-                   rdfs:comment "Proprietà inversa di 'ha capo di governo' usata per collegare la persona al governo di cui è a capo"@it ;
-                   rdfs:label "è capo di governo di"@it ,
-                              "is head of cabinet of"@it .
-
+                             "has head of cabinet"@en .
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/hasNameInTime
@@ -112,6 +102,16 @@ TI:hasTemporalCoverage rdf:type owl:ObjectProperty .
           rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
           rdfs:label "esercita potere"@it ,
                      "has power"@en .
+
+
+###  https://w3id.org/italia/republic-history/onto/org/isHeadOfCabinetOf
+:isHeadOfCabinetOf rdf:type owl:ObjectProperty ;
+                   rdfs:domain <https://w3id.org/italia/republic-history/person/Person> ;
+                   rdfs:range :Cabinet ;
+                   rdfs:comment "Proprietà inversa di 'ha capo di governo' usata per collegare la persona al governo di cui è a capo"@it ;
+                   rdfs:isDefinedBy <https://w3id.org/italia/republic-history/org> ;
+                   rdfs:label "is head of cabinet of"@en ,
+                              "è capo di governo di"@it .
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/isNameInTimeFor
@@ -467,10 +467,10 @@ l0:EventOrSituation rdf:type owl:Class .
                          :OrgType .
 
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+[ owl:maxCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-[ owl:maxCardinality "1"^^xsd:nonNegativeInteger
+[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
  ] .
 
 [ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
