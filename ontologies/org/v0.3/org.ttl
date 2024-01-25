@@ -207,7 +207,11 @@ l0:EventOrSituation rdf:type owl:Class .
           rdfs:subClassOf :Organisation ;
           owl:disjointWith :GovernmentBody ,
                            :PoliticalAssociation ,
-                           :PoliticalGroup .
+                           :PoliticalGroup ;
+          rdfs:comment "L'organizzazione politica rappresentativa che ha la funzione di emanare le leggi (assemblea parlamentare), o anche altri organismi di diritto pubblico, come le assemblee territoriali (per esempio, l’assemblea regionale Siciliana) o quelle elettorali."@it ;
+          rdfs:isDefinedBy <https://w3id.org/italian-republic-hustory/onto/org> ;
+          rdfs:label "Assemblea"@it ,
+                     "Assembly"@en .
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/Cabinet
@@ -224,7 +228,11 @@ l0:EventOrSituation rdf:type owl:Class .
                          ] ;
          owl:disjointWith :GovernmentBody ,
                           :PoliticalAssociation ,
-                          :PoliticalGroup .
+                          :PoliticalGroup ;
+        rdfs:comment "Uno specifico Governo rappresentato dall'espressione della maggioranza parlamentare, cioè della coalizione di partiti che hanno ottenuto il maggior numero di seggi in Parlamento. Esempio di istanze di questa classe sono \"il governo prodi I\", \"il governo Berlusconi II\", ecc."@it ;
+        rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
+        rdfs:label "Cabinet"@en ,
+                  "Governo"@it .
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/ConstitutionalBody
@@ -234,7 +242,11 @@ l0:EventOrSituation rdf:type owl:Class .
                                           owl:hasValue :ConstitutionalBody
                                         ] ;
                     rdfs:subClassOf :GovernmentBody ;
-                    owl:disjointWith :InstitutionalBody .
+                    owl:disjointWith :InstitutionalBody ;
+                    rdfs:comment "La classe degli organi costituzionali quali: Il corpo elettorale, il Parlamento (Camera, Senato), Il Presidente della Repubblica, Il Governo (Consiglio dei Ministri, Presidente del consiglio dei Ministri, Ministri),  La Corte costituzionale."@it ;
+                    rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
+                    rdfs:label "Costitutional Body"@en ,
+                               "Organo Costituzionale"@it .
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/GovernmentBody
@@ -260,7 +272,11 @@ l0:EventOrSituation rdf:type owl:Class .
                                          owl:onProperty :hasOrgType ;
                                          owl:hasValue :InstitutionalBody
                                        ] ;
-                   rdfs:subClassOf :GovernmentBody .
+                   rdfs:subClassOf :GovernmentBody ;
+                   rdfs:comment "La classe rappresenta qualunque organizzazione o struttura di natura istituzionale (ma non Costituzionale), come ad esempio: un Ministero, una Commissione parlamentare, il Consiglio superiore della Magistratura."@it ;
+                   rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
+                   rdfs:label "Institutional Body"@en ,
+                             "Organizzazione istituzionale"@it .
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/NameInTime
@@ -388,7 +404,12 @@ l0:EventOrSituation rdf:type owl:Class .
                                             owl:hasValue :PoliticalAssociation
                                           ] ;
                       rdfs:subClassOf :Organisation ;
-                      owl:disjointWith :PoliticalGroup .
+                      owl:disjointWith :PoliticalGroup ;
+                      rdfs:comment """La classe di tutti i possibili gruppi di persone che si riuniscono per scopi politici, formalmente registrati (Partiti, Sindacati). Essi quindi sono dotati di regolare statuto e atto costitutivo.
+                      ."""@it ;
+                      rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
+                      rdfs:label "Associazione Politica"@it ,
+                                 "Political Association"@en .
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/PoliticalGroup
@@ -398,7 +419,11 @@ l0:EventOrSituation rdf:type owl:Class .
                                       owl:hasValue :PoliticalGroup
                                     ] ;
                 rdfs:subClassOf COV:Group ,
-                                :Organisation .
+                                :Organisation ;
+                rdfs:comment "La classe rappresenta i possibili gruppi di persone che si riuniscono per scopi politici. Questa classe intende il gruppo in maniera lasca, ossia senza registrazioni formali o riconoscimenti in registri pubblici."@it ;
+                              rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
+                              rdfs:label "Gruppo Politico"@it ,
+                                         "Political Group"@en .
 
 
 ###  https://w3id.org/italia/republic-history/onto/org/PoliticalPower
@@ -467,57 +492,7 @@ l0:EventOrSituation rdf:type owl:Class .
                          :OrgType .
 
 
-[ owl:maxCardinality "1"^^xsd:nonNegativeInteger
-] .
 
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-[ owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
- ] .
-
-#################################################################
-#    Annotations
-#################################################################
-
-:Assembly rdfs:comment "L'organizzazione politica rappresentativa che ha la funzione di emanare le leggi (assemblea parlamentare), o anche altri organismi di diritto pubblico, come le assemblee territoriali (per esempio, l’assemblea regionale Siciliana) o quelle elettorali."@it ;
-           rdfs:isDefinedBy <https://w3id.org/italian-republic-hustory/onto/org> ;
-           rdfs:label "Assemblea"@it ,
-                      "Assembly"@en .
-
-
-:Cabinet rdfs:comment "Uno specifico Governo rappresentato dall'espressione della maggioranza parlamentare, cioè della coalizione di partiti che hanno ottenuto il maggior numero di seggi in Parlamento. Esempio di istanze di questa classe sono \"il governo prodi I\", \"il governo Berlusconi II\", ecc."@it ;
-         rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
-         rdfs:label "Cabinet"@en ,
-                    "Governo"@it .
-
-
-:ConstitutionalBody rdfs:comment "La classe degli organi costituzionali quali: Il corpo elettorale, il Parlamento (Camera, Senato), Il Presidente della Repubblica, Il Governo (Consiglio dei Ministri, Presidente del consiglio dei Ministri, Ministri),  La Corte costituzionale."@it ;
-                    rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
-                    rdfs:label "Costitutional Body"@en ,
-                               "Organo Costituzionale"@it .
-
-
-:InstitutionalBody rdfs:comment "La classe rappresenta qualunque organizzazione o struttura di natura istituzionale (ma non Costituzionale), come ad esempio: un Ministero, una Commissione parlamentare, il Consiglio superiore della Magistratura."@it ;
-                   rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
-                   rdfs:label "Institutional Body"@en ,
-                              "Organizzazione istituzionale"@it .
-
-
-:PoliticalAssociation rdfs:comment """La classe di tutti i possibili gruppi di persone che si riuniscono per scopi politici, formalmente registrati (Partiti, Sindacati). Essi quindi sono dotati di regolare statuto e atto costitutivo.
-."""@it ;
-                      rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
-                      rdfs:label "Associazione Politica"@it ,
-                                 "Political Association"@en .
-
-
-:PoliticalGroup rdfs:comment "La classe rappresenta i possibili gruppi di persone che si riuniscono per scopi politici. Questa classe intende il gruppo in maniera lasca, ossia senza registrazioni formali o riconoscimenti in registri pubblici."@it ;
-                rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/org> ;
-                rdfs:label "Gruppo Politico"@it ,
-                           "Political Group"@en .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

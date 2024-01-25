@@ -687,18 +687,6 @@
     <owl:NamedIndividual rdf:about="https://w3id.org/italia/republic-history/onto/org/PoliticalGroup">
         <rdf:type rdf:resource="https://w3id.org/italia/republic-history/onto/org/OrgType"/>
     </owl:NamedIndividual>
-    <rdf:Description>
-        <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
-    <rdf:Description>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-    </rdf:Description>
     
 
 
@@ -736,7 +724,7 @@
     </rdf:Description>
     <rdf:Description rdf:about="https://w3id.org/italia/republic-history/onto/org/PoliticalAssociation">
         <rdfs:comment xml:lang="it">La classe di tutti i possibili gruppi di persone che si riuniscono per scopi politici, formalmente registrati (Partiti, Sindacati). Essi quindi sono dotati di regolare statuto e atto costitutivo.
-.</rdfs:comment>
+                      .</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/org"/>
         <rdfs:label xml:lang="it">Associazione Politica</rdfs:label>
         <rdfs:label xml:lang="en">Political Association</rdfs:label>
