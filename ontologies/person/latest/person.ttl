@@ -186,15 +186,11 @@ TI:hasTemporalEntity rdf:type owl:ObjectProperty .
 
 ###  https://w3id.org/italia/republic-history/onto/person/hasReasonForEnding
 :hasReasonForEnding rdf:type owl:ObjectProperty ;
-                    rdfs:domain [ rdf:type owl:Class ;
-                                  owl:unionOf ( :Membership
-                                                :PoliticalMandate
-                                              )
-                                ] ;
+                    rdfs:domain owl:Thing ;
                     rdfs:range :Reason ;
-                    rdfs:comment "Proprietà usata per collegare il mandato politco con la ragione per cui esso è terminato."@it ;
+                    rdfs:comment "Proprietà usata per indicare un motivo per cui termina una certa situazione (e.g., un mandato politico, un incarico di governo)"@it ;
                     rdfs:isDefinedBy <https://w3id.org/italia/republic-history/onto/person> ;
-                    rdfs:label "ha motivo per fine mandato"@it ,
+                    rdfs:label "ha motivo per fine"@it ,
                                "has reason for ending"@it .
 
 

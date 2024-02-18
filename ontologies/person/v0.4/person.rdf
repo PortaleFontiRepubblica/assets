@@ -264,18 +264,11 @@
     <!-- https://w3id.org/italia/republic-history/onto/person/hasReasonForEnding -->
 
     <owl:ObjectProperty rdf:about="https://w3id.org/italia/republic-history/onto/person/hasReasonForEnding">
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="https://w3id.org/italia/republic-history/onto/person/Membership"/>
-                    <rdf:Description rdf:about="https://w3id.org/italia/republic-history/onto/person/PoliticalMandate"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
         <rdfs:range rdf:resource="https://w3id.org/italia/republic-history/onto/person/Reason"/>
-        <rdfs:comment xml:lang="it">Proprietà usata per collegare il mandato politco con la ragione per cui esso è terminato.</rdfs:comment>
+        <rdfs:comment xml:lang="it">Proprietà usata per indicare un motivo per cui termina una certa situazione (e.g., un mandato politico, un incarico di governo)</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="https://w3id.org/italia/republic-history/onto/person"/>
-        <rdfs:label xml:lang="it">ha motivo per fine mandato</rdfs:label>
+        <rdfs:label xml:lang="it">ha motivo per fine</rdfs:label>
         <rdfs:label xml:lang="it">has reason for ending</rdfs:label>
     </owl:ObjectProperty>
     
