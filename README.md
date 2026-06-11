@@ -1,6 +1,14 @@
-# Le risorse semantiche del portale delle fonti della storia della repubblica italiana
+**Scegli la lingua / Choose your language**
 
-Questo repository raccoglie le varie risorse semantiche definite per creare il grafo della conoscenza alla base del portale delle fonti della storia della repubblica italiana.
-In particolare, il repository ospita alcune ontologie (o moduli ontologici che formano una vera e propria rete) create per rappresentare persone (personaggi politici), organizzazioni (politiche), eventi pubblici, lavori, ecc.
+[![Italiano](https://img.shields.io/badge/italiano-blue?style=for-the-badge)](README.md)
+[![English](https://img.shields.io/badge/english-red?style=for-the-badge)](README.en.md)
 
-Esiste infine un'ontologia di livello top chiamata IRHO - Italian Republic History Ontology che importa tutte le ontologie e definisce alcuni concetti generali astratti utilizzati in ogni modulo ontologico prodotto.
+# Risorse semantiche del "Portale delle fonti per la storia della Repubblica italiana"
+
+![Portale delle fonti per la storia della Repubblica italiana.](./img/logo_pfsri.png "Portale delle fonti per la storia della Repubblica italiana")
+
+## Introduzione
+
+Questo repository ospita i **moduli ontologici** che compongono la rete di ontologie progettata e sviluppata nell'ambito dell'iniziativa per la realizzazione del *Portale delle fonti per la storia della Repubblica italiana*.
+
+La rete di ontologie definisce i modelli semantici di riferimento per la rappresentazione e l'interconnessione di persone, organizzazioni, eventi, risorse archivistiche e di tutte le altre entità di interesse per il dominio di riferimento. Tali modelli costituiscono la base semantica del **grafo della conoscenza del portale**, favorendo l'integrazione dei dati provenienti da fonti eterogenee e la loro pubblicazione come **Linked Open Data**.
