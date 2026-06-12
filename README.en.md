@@ -56,80 +56,112 @@ It is the core of the repository with the **ontology modules**. Each module is p
 
 ## The Ontology Network
 
-The ontology network for the portal is designed as a modular network of interconnected ontologies, ensuring a separation of concerns while maintaining a unified view of the different knowledge areas and domain data. The semantic architecture follows a multi-layered approach, balancing specialized domain knowledge with cross-domain interoperability.
+The ontology network for the portal is designed as a modular network of interconnected ontologies, ensuring a separation of concerns while maintaining a unified view of the different knowledge areas and domain data. The semantic architecture follows a multi-layered approach, balancing specialized domain knowledge with cross-domain interoperability and the reuse of existing ontologies.
 
 ```mermaid
-graph LR
+graph TD
+    
     %% Styling Definitions
     classDef irho fill:#354747,stroke:#333,stroke-width:1px,color:#fff;
     classDef core fill:#678989,stroke:#333,stroke-width:1px,color:#fff;
     classDef arco fill:#C5A3FF,stroke:#333,stroke-width:1px;
     classDef ontopia fill:#0066cc,stroke:#333,stroke-width:1px,color:#fff;
     classDef web fill:#B7F5B7,stroke:#333,stroke-width:1px;
+    classDef no-bg fill:transparent,stroke:transparent,stroke-width:0px;
+    classDef prefix-box fill:#f9f9f9,stroke:#666,stroke-width:1px,text-align:left,font-family:monospace,text-wrap:nowrap;
 
-    %% Subgraph: Web of Data
-    subgraph Web_of_Data ["Web of Data"]
-        FRBR((FRBR)):::web
+    %% Main graph
+    subgraph OntologyNetwork [ ]
+
+	    %% Subgraph: Web of Data
+	    subgraph Web_of_Data ["Web of Data"]
+	        FRBR((FRBR)):::web
+	    end
+
+	    %% Subgraph: ARCO Ontologies
+	    subgraph ARCO ["ARCO"]
+	        a_cd((a-cd)):::arco
+	        a_dd((a-dd)):::arco
+	    end
+
+	    %% Subgraph: OntoPiA Framework
+	    subgraph OntoPiA ["OntoPiA - schema.gov.it"]
+	        CPEV((CPEV)):::ontopia
+	        COV((COV)):::ontopia
+	        l0((l0)):::ontopia
+	        CLV((CLV)):::ontopia
+	    end
+
+	    %% Core Semantic Network Nodes
+	    IRHO((IRHO)):::irho
+	    pers((pers)):::core
+	    org((org)):::core
+	    event_debate(("event<br>(debate)")):::core
+	    a_archives(("a-archives")):::core
+	    diary((diary)):::core
+	    speech((speech)):::core
+	    work((work)):::core
+	    act((act)):::core
+
+	    %% Relationships & Imports
+	    IRHO -->|owl:imports| pers
+	    IRHO -->|owl:imports| org
+	    IRHO -->|owl:imports| event_debate
+	    IRHO -->|owl:imports| speech
+	    IRHO -->|owl:imports| work
+	    IRHO -->|owl:imports| act
+	    IRHO -->|owl:imports| diary
+	    IRHO -->|owl:imports| a_archives
+	    
+	    pers -->|owl:imports| CLV
+	    pers -->|owl:imports| org
+	    
+	    org -->|owl:imports| COV
+	    
+	    event_debate -->|owl:imports| CPEV
+	    
+	    work -->|owl:imports| l0
+	    work -->|prov:wasDerivedFrom| FRBR
+	    
+	    speech -->|owl:imports| work
+	    
+	    act -->|owl:imports| work
+
+	    a_archives --->|owl:imports| a_cd
+	    a_archives --->|owl:imports| a_dd
+	end
+
+	%% Invisible link to force the text box to sit below the main diagram
+    OntologyNetwork ~~~ Prefixes
+
+	%% Bottom Prefix Container
+    subgraph Prefixes ["Ontologies and prefixes"]
+        box["
+<b>irho: </b><a href="https://w3id.org/italia/republic-history/onto/IRHO">https://w3id.org/italia/republic-history/onto/IRHO</a>
+<b>pers: </b><a href="https://w3id.org/italia/republic-history/onto/person">https://w3id.org/italia/republic-history/onto/person</a>
+<b>org: </b><a href="https://w3id.org/italia/republic-history/onto/org">https://w3id.org/italia/republic-history/onto/org</a>
+<b>event: </b><a href="https://w3id.org/italia/republic-history/onto/event">https://w3id.org/italia/republic-history/onto/event</a>
+<b>speech: </b><a href="https://w3id.org/italia/republic-history/onto/speech">https://w3id.org/italia/republic-history/onto/speech</a>
+<b>work: </b><a href="https://w3id.org/italia/republic-history/onto/work">https://w3id.org/italia/republic-history/onto/work</a>
+<b>act: </b><a href="https://w3id.org/italia/republic-history/onto/act">https://w3id.org/italia/republic-history/onto/act</a>
+<b>diary: </b><a href="https://w3id.org/italia/republic-history/onto/diary">https://w3id.org/italia/republic-history/onto/diary</a>
+<b>a-archives: </b><a href="https://w3id.org/arco/ontology/archive">https://w3id.org/arco/ontology/archive</a>
+<b>CLV: </b><a href="https://w3id.org/italia/onto/CLV">https://w3id.org/italia/onto/CLV</a>
+<b>COV: </b><a href="https://w3id.org/italia/onto/COV">https://w3id.org/italia/onto/COV</a>
+<b>CPEV: </b><a href="https://w3id.org/italia/onto/CPEV">https://w3id.org/italia/onto/CPEV</a>
+<b>l0: </b><a href="https://w3id.org/italia/onto/l0">https://w3id.org/italia/onto/l0</a>
+<b>FRBR: </b><a href="http://purl.org/vocab/frbr/core#">http://purl.org/vocab/frbr/core#</a>
+<b>a-cd: </b><a href="https://w3id.org/arco/ontology/context-description">https://w3id.org/arco/ontology/context-description</a>
+<b>a-dd: </b><a href="https://w3id.org/arco/ontology/denotative-description">https://w3id.org/arco/ontology/denotative-description</a>
+<b>owl: </b><a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>
+<b>prov: </b><a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
+"]:::prefix-box
     end
 
-    %% Subgraph: ARCO Ontologies
-    subgraph ARCO ["ARCO"]
-        a_cd((a-cd)):::arco
-        a_dd((a-dd)):::arco
-    end
+	class OntologyNetwork no-bg;
+	class Prefixes no-bg;
 
-    %% Subgraph: OntoPiA Framework
-    subgraph OntoPiA ["OntoPiA - schema.gov.it"]
-        CPEV((CPEV)):::ontopia
-        COV((COV)):::ontopia
-        l0((l0)):::ontopia
-        CLV((CLV)):::ontopia
-    end
-
-    %% Core Semantic Network Nodes
-    IRHO((IRHO)):::irho
-    pers((pers)):::core
-    org((org)):::core
-    event_debate(("event<br>(debate)")):::core
-    a_archives(("a-archives")):::core
-    diary((diary)):::core
-    speech((speech)):::core
-    work((work)):::core
-    act((act)):::core
-
-    %% Relationships & Imports
-    IRHO -->|owl:imports| pers
-    IRHO -->|owl:imports| org
-    IRHO -->|owl:imports| event_debate
-    IRHO -->|owl:imports| speech
-    IRHO -->|owl:imports| work
-    IRHO -->|owl:imports| act
-    IRHO -->|owl:imports| diary
-    IRHO -->|owl:imports| a_archives
-    
-    pers -->|owl:imports| CLV
-    pers -->|owl:imports| org
-    
-    org -->|owl:imports| COV
-    
-    event_debate -->|owl:imports| CPEV
-    
-    work -->|owl:imports| l0
-    work -->|prov:wasDerivedFrom| FRBR
-    
-    speech -->|owl:imports| work
-    
-    act -->|owl:imports| work
-
-    a_archives --->|owl:imports| a_cd
-    a_archives --->|owl:imports| a_dd
 ```
-
-## License
-
-[![CC BY 4.0](https://licensebuttons.net/l/by/3.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
-
-Ontology modules and realted documentation are licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
 
 ## Contributing and community engagement
 
@@ -155,3 +187,9 @@ To ensure that these assets remain a reliable foundation for the community:
 * **Long-term maintenance:** CNR is committed to the long-term maintenance and sustainability of the semantic assets beyond the initial project lifecycle.
 * **URI persistence:** All namespaces and identifiers are managed to ensure permanent resolution within the Linked Data ecosystem, relying on the [w3id.org](https://w3id.org/) service and the specific [italia](https://github.com/perma-id/w3id.org/tree/master/italia) subdomain focusing on ontologies and controlled vocabularies of the Italian Public Sector.
 * **Institutional support:** As the host of the portal, CNR provides the institutional stability necessary to keep the underlying infrastructure fully operational.
+
+## License
+
+[![CC BY 4.0](https://licensebuttons.net/l/by/3.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
+
+Ontology modules and realted documentation are licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) license.
