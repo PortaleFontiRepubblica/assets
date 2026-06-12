@@ -89,7 +89,7 @@ graph TD
 	        CPEV((CPEV)):::ontopia
 	        COV((COV)):::ontopia
 	        l0((l0)):::ontopia
-	        CLV((CLV)):::ontopia
+	        CPV((CPV)):::ontopia
 	    end
 
 	    %% Core Semantic Network Nodes
@@ -113,7 +113,7 @@ graph TD
 	    IRHO -->|owl:imports| diary
 	    IRHO -->|owl:imports| a_archives
 	    
-	    pers -->|owl:imports| CLV
+	    pers -->|owl:imports| CPV
 	    pers -->|owl:imports| org
 	    
 	    org -->|owl:imports| COV
@@ -146,7 +146,7 @@ graph TD
 <b>act: </b><a href="https://w3id.org/italia/republic-history/onto/act">https://w3id.org/italia/republic-history/onto/act</a>
 <b>diary: </b><a href="https://w3id.org/italia/republic-history/onto/diary">https://w3id.org/italia/republic-history/onto/diary</a>
 <b>a-archives: </b><a href="https://w3id.org/arco/ontology/archive">https://w3id.org/arco/ontology/archive</a>
-<b>CLV: </b><a href="https://w3id.org/italia/onto/CLV">https://w3id.org/italia/onto/CLV</a>
+<b>CPV: </b><a href="https://w3id.org/italia/onto/CPV">https://w3id.org/italia/onto/CPV</a>
 <b>COV: </b><a href="https://w3id.org/italia/onto/COV">https://w3id.org/italia/onto/COV</a>
 <b>CPEV: </b><a href="https://w3id.org/italia/onto/CPEV">https://w3id.org/italia/onto/CPEV</a>
 <b>l0: </b><a href="https://w3id.org/italia/onto/l0">https://w3id.org/italia/onto/l0</a>
@@ -163,6 +163,81 @@ graph TD
 
 ```
 
+### Italian Republic History Ontology (IRHO)
+
+**URI**: [`https://w3id.org/italia/republic-history/onto/IRHO`](https://w3id.org/italia/republic-history/onto/IRHO)
+
+The Italian Republic History Ontology (IRHO) constitutes the core ontology of the network and serves as its main entry point, importing and integrating all the ontology modules developed within the framework. It defines a set of foundational, cross-domain classes and properties — such as title, short name, and other common descriptive elements — that are shared and reused across the network.
+
+The rest of the network is organized into thematic modules that correspond to the primary data dimensions of the reference domain.
+
+### (Public) Person Ontology
+
+**URI**: [`https://w3id.org/italia/republic-history/onto/person`](https://w3id.org/italia/republic-history/onto/person)
+
+![Graphical representation of the (public) person ontology](./ontologies/person/Grafici/person.png "(Public) person ontology")
+
+This ontology models individuals with public relevance, particularly those holding or having held political mandates. It supports the representation of different roles and positions through the application of established design patterns, aligned with those already adopted in existing national ontologies. The module enables a structured and reusable modeling of political and institutional roles and membership over time, in the context of specific (political) organisations.
+
+### (Political) Organisation Ontology
+
+**URI**: [`https://w3id.org/italia/republic-history/onto/org`](https://w3id.org/italia/republic-history/onto/org)
+
+![Graphical representation of the (political) organisation ontology](./ontologies/org/Grafici/org.png "(Political) organisation ontology")
+
+This ontology models different types of organisations within a constitutional and political context, including entities such as political parties, parliamentary groups, and similar institutional actors. It provides a structured representation of their roles and classifications within the political system.
+
+### Public Event Ontology
+
+**URI**: [`https://w3id.org/italia/republic-history/onto/event`](https://w3id.org/italia/republic-history/onto/event)
+
+![Graphical representation of the public event ontology](./ontologies/event/Grafici/event.png "Public event ontology")
+
+![Graphical representation of the public event ontology](./ontologies/event/Grafici/sitting-debate-discussion/sitting-debate-discussion.png "Public event ontology")
+
+This ontology reuses the national CPEV ontology to represent significant events within the project domain. It enables the modelling of institutional and political events such as the election and inauguration of the President of the Republic, parliamentary sessions, speeches, debates, and other relevant public events.
+
+### (Creative) Work Ontology
+
+**URI**: [`https://w3id.org/italia/republic-history/onto/work`](https://w3id.org/italia/republic-history/onto/work)
+
+![Graphical representation of the (creative) work ontology](./ontologies/work/Grafici/work.png "(Creative) work ontology")
+
+This ontology module operates as a meta-level layer designed to group more abstract concepts primarily derived from the FRBR (Functional Requirements for Bibliographic Records) model, with which it is semantically aligned. It covers entities related to creative works and documentary resources produced by institutional actors, as well as their physical manifestations. In particular, it provides the structural framework for connecting and organising domain-specific resources such as parliamentary bulletins, presidential speeches, and legally binding acts, including laws and other legislative documents.
+
+### Speech Ontology
+
+**URI**: [`https://w3id.org/italia/republic-history/onto/speech`](https://w3id.org/italia/republic-history/onto/speech)
+
+![Graphical representation of the speech ontology](./ontologies/speech/Grafici/speech.png "Speech ontology")
+
+This ontology models speeches delivered by individuals within specific events and institutional contexts. It also enables the representation of associated digital resources, understood as the physical manifestations of the speeches themselves. The module supports the linking of speakers, events, and speech content in a structured and semantically consistent way.
+
+### Act Ontology
+
+**URI**: [`https://w3id.org/italia/republic-history/onto/act`](https://w3id.org/italia/republic-history/onto/act)
+
+![Graphical representation of the act ontology](./ontologies/act/Grafici/act.png "Act ontology")
+
+This ontology models legislative acts and laws, including all relevant information about their enactment, such as context, temporal period, and involved persons. It introduces the concept of a Legal Resource, aligned with the European Legislation Identifier (ELI) ontology, which is used for defining persistent identifiers in official legal publications such as the Official Gazette. A Legal Resource may also represent a component of a broader legal act, such as an individual article within a law, enabling fine-grained representation of legislative structures.
+
+### Diary Ontology
+
+**URI**: [`https://w3id.org/italia/republic-history/onto/diary`](https://w3id.org/italia/republic-history/onto/diary)
+
+![Graphical representation of the diary ontology](./ontologies/diary/Grafici/diary.png "Diary ontology")
+
+This ontology models historical diaries and related documentary materials, such as the diaries of the Presidents of the Republic. A diary is treated as a cultural heritage entity composed of an agenda, understood as a structured collection of public events. The module supports the representation of diaries as curated cultural artefacts linking temporal records and institutional activities.
+
+### Archive Ontology
+
+**URI**: [`https://w3id.org/arco/ontology/archive`](https://w3id.org/arco/ontology/archive)
+
+![Graphical representation of the archive ontology](./ontologies/archive/Grafici/archive.png "Diary ontology")
+
+The archive ontology is fully integrated into the [ArCo ontology network](https://github.com/ICCD-MiBACT/ArCo) developed by the Italian Ministry of Culture and is therefore maintained within that ecosystem. By reusing the domain-independent components provided by ArCo — such as dates, places, and responsibility structures — it ensures strong semantic alignment with national cultural heritage standards. The module extends this foundation with archive-specific concepts, including `ArchivalResource`, `ArchivalResourceCollection`, and the archival hierarchy, enabling the structured representation of archival entities and their internal organisation.
+
+
 ## Contributing and community engagement
 
 We welcome contributions from domain experts and the Semantic Web community to help improve the ontology network. Anyone is free to contribute by identifying errors or inconsistencies, suggesting new terms, or proposing improvements to the models.
@@ -178,7 +253,7 @@ To contribute or ask your question, **[open a new issue](https://github.com/Port
 ## Governance and Maintenance
 
 The ontologies in this repository were designed and developed by the Italian National Research Council, with a strong collaboration between:
-* the **Institute of Cognitive Sciences and Technologies** ([CNR-ISTC](https://www.istc.cnr.it/)), primarily responsible for the ontology design and knowledge engineering process
+* the **Institute of Cognitive Sciences and Technologies** ([CNR-ISTC](https://www.istc.cnr.it/en)), primarily responsible for the ontology design and knowledge engineering process
 * the **Institute for Applied Mathematics and Information Technologies "Enrico Magenes"** ([CNR-IMATI](https://www.imati.cnr.it/make_home_page.php?language=ENG))
 * the **Institute for the European Intellectual Lexicon and History of Ideas** ([CNR-ILIESI](https://www.iliesi.cnr.it/?lan=en))
 
