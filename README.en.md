@@ -29,7 +29,7 @@ Some of the reference data portals that have informed the ontology design proces
 * [The open data portal of the Senate of the Italian Republic](https://dati.senato.it/)
 * [The open data portal of the Italian Central Archives of the State](http://dati.acs.beniculturali.it/)
 
-## Repository Structure
+## Repository structure
 
 This repository is organized to support the full lifecycle of ontology engineering. For the ontology modules we follow a modular and explicit versioning pattern to ensure backward compatibility and stable URI resolution for the ontology network.
 
@@ -238,6 +238,72 @@ This ontology models historical diaries and related documentary materials, such 
 The archive ontology is fully integrated into the [ArCo ontology network](https://github.com/ICCD-MiBACT/ArCo) developed by the Italian Ministry of Culture and is therefore maintained within that ecosystem. By reusing the domain-independent components provided by ArCo — such as dates, places, and responsibility structures — it ensures strong semantic alignment with national cultural heritage standards. The module extends this foundation with archive-specific concepts, including `ArchivalResource`, `ArchivalResourceCollection`, and the archival hierarchy, enabling the structured representation of archival entities and their internal organisation.
 
 
+## Ontologies usage and Linked Open Data
+
+The ontology network serves as the formal foundation for the production and publication of Linked Open Data for the [Portal of sources for the history of the Italian Republic](https://portalefontirepubblicaitaliana.cnr.it/). These models were thus actively used to transform and harmonize heterogeneous datasets into an RDF-based machine-readable format as Linked Open Data.
+
+The ontologies underpin the design and implementation of a **semantic knowledge graph** that integrates data from multiple sources into a coherent and interoperable representation. The resulting knowledge graph constitutes the core information infrastructure of the portal, supporting semantic search, data integration, entity linking, and the exploration of complex relationships among archival resources, historical sources, and their contexts.
+
+The knowledge graph thus powers the portal's discovery, navigation, and interoperability functionalities, enabling users and applications to explore relationships between records, institutions, persons, places, and historical events in a unified way.
+
+### Knowledge Graph access and Linked Data resources
+
+#### SPARQL endpoint
+
+The knowledge graph can be explored through the project's SPARQL endpoint:
+
+* **SPARQL endpoint**: [`https://portalefontirepubblicaitaliana.cnr.it/sparql`](https://portalefontirepubblicaitaliana.cnr.it/sparql)
+* **SPARQL query interface** (Yasgui): [`https://portalefontirepubblicaitaliana.cnr.it/sparql-ui`](https://portalefontirepubblicaitaliana.cnr.it/sparql-ui)
+
+#### Example entities in the knowledge graph
+
+👥 **Persons**
+
+Name | URI |
+|:------|:------|
+| Luigi Einaudi | [`https://w3id.org/italia/republic-history/data/political-figure/cp27790`](https://w3id.org/italia/republic-history/data/political-figure/cp27790) |
+| Alcide De Gasperi | [`https://w3id.org/italia/republic-history/data/political-figure/cp13230`](https://w3id.org/italia/republic-history/data/political-figure/cp13230) |
+| Palmiro Togliatti | [`https://w3id.org/italia/republic-history/data/political-figure/cp14140`](https://w3id.org/italia/republic-history/data/political-figure/cp14140) |
+| Giorgio Almirante | [`https://w3id.org/italia/republic-history/data/political-figure/cp140`](https://w3id.org/italia/republic-history/data/political-figure/cp140) |
+
+🏛️ **Political organisations**
+
+Name | URI |
+|:------|:------|
+| Constituent Assembly of Italy | [`https://w3id.org/italia/republic-history/data/assembly/ca`](https://w3id.org/italia/republic-history/data/assembly/ca) |
+| Senate of the Republic (Italy) | [`https://w3id.org/italia/republic-history/data/constitutional-body/sdr`](https://w3id.org/italia/republic-history/data/constitutional-body/sdr) |
+| First De Gasperi government | [`https://w3id.org/italia/republic-history/data/cabinet/G065G`](https://w3id.org/italia/republic-history/data/cabinet/G065G) |
+
+🗓️ **Events**
+
+Name | URI |
+|:------|:------|
+| Luigi Einaudi's presidential election | [`https://w3id.org/italia/republic-history/data/presidential-election/cp27790-1948-05-11`](https://w3id.org/italia/republic-history/data/presidential-election/cp27790-1948-05-11) |
+| Enrico De Nicola's presidential election | [`https://w3id.org/italia/republic-history/data/presidential-election/cp303409-1946-06-28`](https://w3id.org/italia/republic-history/data/presidential-election/cp303409-1946-06-28) |
+
+🗃️ **Archival resources and related entities**
+
+Name | URI |
+|:------|:------|
+| Historical Archives of the Presidency of the Italian Republic | [`https://w3id.org/italia/republic-history/data/holder-of-archive/hist-001-000001`](https://w3id.org/italia/republic-history/data/holder-of-archive/hist-001-000001) |
+| Fonds Francesco Bartolotta | [`https://w3id.org/italia/republic-history/data/arc-resource/IT_GEC_BAL_00000001`](https://w3id.org/italia/republic-history/data/arc-resource/IT_GEC_BAL_00000001) |
+| Fonds Repubblica sociale italiana | [`https://w3id.org/italia/republic-history/data/arc-resource/IT_GEC_BAL_00000006`](https://w3id.org/italia/republic-history/data/arc-resource/IT_GEC_BAL_00000006) |
+| Archival resource Nino Tripodi | [`https://w3id.org/italia/republic-history/data/arc-resource/IT_GEC_BAL_00000002`](https://w3id.org/italia/republic-history/data/arc-resource/IT_GEC_BAL_00000002) |
+| Fonds Raccolta ufficiale delle leggi e dei decreti | [`https://w3id.org/italia/republic-history/data/arc-resource/IT_GEC_BAL_00000037`](https://w3id.org/italia/republic-history/data/arc-resource/IT_GEC_BAL_00000037) |
+
+## Namespaces and base URIs
+
+To ensure persistence, stability, and long-term resolvability of identifiers, the project relies on the [w3id infrastructure](https://w3id.org/). All resources published within the ecosystem of the *Portal of sources for the history of the Italian Republic* share the common base URI:
+
+* `https://w3id.org/italia/republic-history/`
+
+This base URI is further specialized into dedicated namespaces for ontology definitions and knowledge graph resources:
+
+* Ontologies: `https://w3id.org/italia/republic-history/onto/`
+* Data entities and knowledge graph resources: `https://w3id.org/italia/republic-history/data/`
+
+All URIs are designed to be persistent and dereferenceable, supporting both human-readable documentation (relying on [LODE](https://essepuntato.it/lode/) and [LodView](https://github.com/LodLive/LodView)) and machine-readable RDF representations in accordance with Linked Data principles.
+
 ## Contributing and community engagement
 
 We welcome contributions from domain experts and the Semantic Web community to help improve the ontology network. Anyone is free to contribute by identifying errors or inconsistencies, suggesting new terms, or proposing improvements to the models.
@@ -250,7 +316,7 @@ To ensure all changes are tracked and discussed transparently, we encourage usin
 
 To contribute or ask your question, **[open a new issue](https://github.com/PortaleFontiRepubblica/assets/issues/new/choose)** in this repository. Please provide as much detail as possible.
 
-## Governance and Maintenance
+## Governance and maintenance
 
 The ontologies in this repository were designed and developed by the Italian National Research Council, with a strong collaboration between:
 * the **Institute of Cognitive Sciences and Technologies** ([CNR-ISTC](https://www.istc.cnr.it/en)), primarily responsible for the ontology design and knowledge engineering process
