@@ -279,9 +279,9 @@ Il grafo della conoscenza è interrogabile tramite l'endpoint SPARQL del progett
 
 Il portale mette inoltre a disposizione [query di esempio](https://portalefontirepubblicaitaliana.cnr.it/portal/esplora_dati.php), utilizzabili come punto di partenza per esplorare i dati RDF disponibili e interagire con l'endpoint SPARQL.
 
-## Esempi di entità nel grafo della conoscenza
+### Esempi di entità nel grafo della conoscenza
 
-### 👥 Persone
+#### 👥 Persone
 
 | Nome | URI |
 | :--- | :--- |
@@ -290,7 +290,7 @@ Il portale mette inoltre a disposizione [query di esempio](https://portalefontir
 | Palmiro Togliatti | [`https://w3id.org/italia/republic-history/data/political-figure/cp14140`](https://w3id.org/italia/republic-history/data/political-figure/cp14140) |
 | Giorgio Almirante | [`https://w3id.org/italia/republic-history/data/political-figure/cp140`](https://w3id.org/italia/republic-history/data/political-figure/cp140)     |
 
-### 🏛️ Organizzazioni politiche
+#### 🏛️ Organizzazioni politiche
 
 | Nome | URI |
 | :--- | :--- |
@@ -298,14 +298,14 @@ Il portale mette inoltre a disposizione [query di esempio](https://portalefontir
 | Senato della Repubblica        | [`https://w3id.org/italia/republic-history/data/constitutional-body/sdr`](https://w3id.org/italia/republic-history/data/constitutional-body/sdr) |
 | Primo governo De Gasperi       | [`https://w3id.org/italia/republic-history/data/cabinet/G065G`](https://w3id.org/italia/republic-history/data/cabinet/G065G)                     |
 
-### 🗓️ Eventi
+#### 🗓️ Eventi
 
 | Nome | URI |
 | :--- | :--- |
 | Elezione di Luigi Einaudi a Presidente della Repubblica    | [`https://w3id.org/italia/republic-history/data/presidential-election/cp27790-1948-05-11`](https://w3id.org/italia/republic-history/data/presidential-election/cp27790-1948-05-11)   |
 | Elezione di Enrico De Nicola a Presidente della Repubblica | [`https://w3id.org/italia/republic-history/data/presidential-election/cp303409-1946-06-28`](https://w3id.org/italia/republic-history/data/presidential-election/cp303409-1946-06-28) |
 
-### 🗃️ Risorse archivistiche e entità correlate
+#### 🗃️ Risorse archivistiche e entità correlate
 
 | Nome | URI |
 | :--- | :--- |
