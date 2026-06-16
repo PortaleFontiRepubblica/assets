@@ -258,7 +258,7 @@ The portal provides [example queries](https://portalefontirepubblicaitaliana.cnr
 
 ### Example entities in the knowledge graph
 
-### 👥 Persons
+#### 👥 Persons
 
 Name | URI |
 |:------|:------|
@@ -267,7 +267,7 @@ Name | URI |
 | Palmiro Togliatti | [`https://w3id.org/italia/republic-history/data/political-figure/cp14140`](https://w3id.org/italia/republic-history/data/political-figure/cp14140) |
 | Giorgio Almirante | [`https://w3id.org/italia/republic-history/data/political-figure/cp140`](https://w3id.org/italia/republic-history/data/political-figure/cp140) |
 
-### 🏛️ Political organisations
+#### 🏛️ Political organisations
 
 Name | URI |
 |:------|:------|
@@ -275,14 +275,14 @@ Name | URI |
 | Senate of the Republic (Italy) | [`https://w3id.org/italia/republic-history/data/constitutional-body/sdr`](https://w3id.org/italia/republic-history/data/constitutional-body/sdr) |
 | First De Gasperi government | [`https://w3id.org/italia/republic-history/data/cabinet/G065G`](https://w3id.org/italia/republic-history/data/cabinet/G065G) |
 
-### 🗓️ Events
+#### 🗓️ Events
 
 Name | URI |
 |:------|:------|
 | Luigi Einaudi's presidential election | [`https://w3id.org/italia/republic-history/data/presidential-election/cp27790-1948-05-11`](https://w3id.org/italia/republic-history/data/presidential-election/cp27790-1948-05-11) |
 | Enrico De Nicola's presidential election | [`https://w3id.org/italia/republic-history/data/presidential-election/cp303409-1946-06-28`](https://w3id.org/italia/republic-history/data/presidential-election/cp303409-1946-06-28) |
 
-### 🗃️ Archival resources and related entities
+#### 🗃️ Archival resources and related entities
 
 Name | URI |
 |:------|:------|
