@@ -5,7 +5,7 @@
 
 # Semantic assets for the *Portal of sources for the history of the Italian Republic*
 
-![Portal of sources for the history of the Italian Republic.](./img/logo_pfsri.png "Portal of sources for the history of the Italian Republic")
+[![Portal of sources for the history of the Italian Republic.](./img/logo_pfsri.png "Portal of sources for the history of the Italian Republic")](https://portalefontirepubblicaitaliana.cnr.it/)
 
 ## Overview
 
@@ -138,7 +138,7 @@ graph TD
 	%% Bottom Prefix Container
     subgraph Prefixes ["Ontologies and prefixes"]
         box["
-<b>irho: </b><a href="https://w3id.org/italia/republic-history/onto/IRHO">https://w3id.org/italia/republic-history/onto/IRHO</a>
+<b>IRHO: </b><a href="https://w3id.org/italia/republic-history/onto/IRHO">https://w3id.org/italia/republic-history/onto/IRHO</a>
 <b>pers: </b><a href="https://w3id.org/italia/republic-history/onto/person">https://w3id.org/italia/republic-history/onto/person</a>
 <b>org: </b><a href="https://w3id.org/italia/republic-history/onto/org">https://w3id.org/italia/republic-history/onto/org</a>
 <b>event: </b><a href="https://w3id.org/italia/republic-history/onto/event">https://w3id.org/italia/republic-history/onto/event</a>
@@ -234,7 +234,7 @@ This ontology models historical diaries and related documentary materials, such 
 
 **URI**: [`https://w3id.org/arco/ontology/archive`](https://w3id.org/arco/ontology/archive)
 
-![Graphical representation of the archive ontology](./ontologies/archive/Grafici/archive.png "Diary ontology")
+![Graphical representation of the archive ontology](./ontologies/archive/Grafici/archive.png "Archive ontology")
 
 The archive ontology is fully integrated into the [ArCo ontology network](https://github.com/ICCD-MiBACT/ArCo) developed by the Italian Ministry of Culture and is therefore maintained within that ecosystem. By reusing the domain-independent components provided by ArCo — such as dates, places, and responsibility structures — it ensures strong semantic alignment with national cultural heritage standards. The module extends this foundation with archive-specific concepts, including `ArchivalResource`, `ArchivalResourceCollection`, and the archival hierarchy, enabling the structured representation of archival entities and their internal organisation.
 
