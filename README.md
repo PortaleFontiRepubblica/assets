@@ -5,7 +5,7 @@
 
 # Risorse semantiche per il *Portale delle fonti per la storia della Repubblica italiana*
 
-![Portale delle fonti per la storia della Repubblica italiana.](./img/logo_pfsri.png "Portale delle fonti per la storia della Repubblica italiana")
+[![Portale delle fonti per la storia della Repubblica italiana.](./img/logo_pfsri.png "Portale delle fonti per la storia della Repubblica italiana.")](https://portalefontirepubblicaitaliana.cnr.it/)
 
 ## Introduzione
 
