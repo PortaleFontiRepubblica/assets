@@ -137,26 +137,7 @@ graph TD
 
 	%% Bottom Prefix Container
     subgraph Prefixes ["Ontologies and prefixes"]
-        box["
-<b>IRHO: </b><a href="https://w3id.org/italia/republic-history/onto/IRHO">https://w3id.org/italia/republic-history/onto/IRHO</a>
-<b>pers: </b><a href="https://w3id.org/italia/republic-history/onto/person">https://w3id.org/italia/republic-history/onto/person</a>
-<b>org: </b><a href="https://w3id.org/italia/republic-history/onto/org">https://w3id.org/italia/republic-history/onto/org</a>
-<b>event: </b><a href="https://w3id.org/italia/republic-history/onto/event">https://w3id.org/italia/republic-history/onto/event</a>
-<b>speech: </b><a href="https://w3id.org/italia/republic-history/onto/speech">https://w3id.org/italia/republic-history/onto/speech</a>
-<b>work: </b><a href="https://w3id.org/italia/republic-history/onto/work">https://w3id.org/italia/republic-history/onto/work</a>
-<b>act: </b><a href="https://w3id.org/italia/republic-history/onto/act">https://w3id.org/italia/republic-history/onto/act</a>
-<b>diary: </b><a href="https://w3id.org/italia/republic-history/onto/diary">https://w3id.org/italia/republic-history/onto/diary</a>
-<b>a-archives: </b><a href="https://w3id.org/arco/ontology/archive">https://w3id.org/arco/ontology/archive</a>
-<b>CPV: </b><a href="https://w3id.org/italia/onto/CPV">https://w3id.org/italia/onto/CPV</a>
-<b>COV: </b><a href="https://w3id.org/italia/onto/COV">https://w3id.org/italia/onto/COV</a>
-<b>CPEV: </b><a href="https://w3id.org/italia/onto/CPEV">https://w3id.org/italia/onto/CPEV</a>
-<b>l0: </b><a href="https://w3id.org/italia/onto/l0">https://w3id.org/italia/onto/l0</a>
-<b>FRBR: </b><a href="http://purl.org/vocab/frbr/core#">http://purl.org/vocab/frbr/core#</a>
-<b>a-cd: </b><a href="https://w3id.org/arco/ontology/context-description">https://w3id.org/arco/ontology/context-description</a>
-<b>a-dd: </b><a href="https://w3id.org/arco/ontology/denotative-description">https://w3id.org/arco/ontology/denotative-description</a>
-<b>owl: </b><a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>
-<b>prov: </b><a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
-"]:::prefix-box
+        box["<table><tr><td><b>IRHO: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/republic-history/onto/IRHO">https://w3id.org/italia/republic-history/onto/IRHO</a></td><tr><td><b>pers: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/republic-history/onto/person">https://w3id.org/italia/republic-history/onto/person</a></td><tr><td><b>org: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/republic-history/onto/org">https://w3id.org/italia/republic-history/onto/org</a></td><tr><td><b>event: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/republic-history/onto/event">https://w3id.org/italia/republic-history/onto/event</a></td><tr><td><b>speech: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/republic-history/onto/speech">https://w3id.org/italia/republic-history/onto/speech</a></td><tr><td><b>work: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/republic-history/onto/work">https://w3id.org/italia/republic-history/onto/work</a></td><tr><td><b>act: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/republic-history/onto/act">https://w3id.org/italia/republic-history/onto/act</a></td><tr><td><b>diary: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/republic-history/onto/diary">https://w3id.org/italia/republic-history/onto/diary</a></td><tr><td><b>a-archives: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/arco/ontology/archive">https://w3id.org/arco/ontology/archive</a></td><tr><td><b>CPV: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/onto/CPV">https://w3id.org/italia/onto/CPV</a></td><tr><td><b>COV: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/onto/COV">https://w3id.org/italia/onto/COV</a></td><tr><td><b>CPEV: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/onto/CPEV">https://w3id.org/italia/onto/CPEV</a></td><tr><td><b>l0: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/italia/onto/l0">https://w3id.org/italia/onto/l0</a></td><tr><td><b>FRBR: </b></td><td style="padding-left: 1rem;"><a href="http://purl.org/vocab/frbr/core#">http://purl.org/vocab/frbr/core#</a></td><tr><td><b>a-cd: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/arco/ontology/context-description">https://w3id.org/arco/ontology/context-description</a></td><tr><td><b>a-dd: </b></td><td style="padding-left: 1rem;"><a href="https://w3id.org/arco/ontology/denotative-description">https://w3id.org/arco/ontology/denotative-description</a></td><tr><td><b>owl: </b></td><td style="padding-left: 1rem;"><a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a></td><tr><td><b>prov: </b></td><td style="padding-left: 1rem;"><a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a></td><table>"]:::prefix-box
     end
 
 	class OntologyNetwork no-bg;
