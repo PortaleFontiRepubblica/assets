@@ -64,6 +64,8 @@ Per ciascun modulo sono inoltre fornite rappresentazioni grafiche realizzate com
 La rete ontologica del portale è progettata come un insieme modulare di ontologie interconnesse, in grado di garantire una chiara separazione dei domini rappresentati, pur mantenendo una visione unificata dei diversi ambiti di conoscenza e dei relativi dati di dominio. L'architettura semantica adotta un approccio multilivello, che bilancia la modellazione di specifica conoscenza di dominio con l'interoperabilità tra domini diversi e il riuso di ontologie esistenti.
 
 ```mermaid
+%%{init: {'themeVariables': { 'fontSize': '2em', 'htmlLabels': true }}}%%
+
 graph TD
     
     %% Styling Definitions

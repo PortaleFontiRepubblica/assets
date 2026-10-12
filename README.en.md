@@ -59,6 +59,8 @@ It is the core of the repository with the **ontology modules**. Each module is p
 The ontology network for the portal is designed as a modular network of interconnected ontologies, ensuring a separation of concerns while maintaining a unified view of the different knowledge areas and domain data. The semantic architecture follows a multi-layered approach, balancing specialized domain knowledge with cross-domain interoperability and the reuse of existing ontologies.
 
 ```mermaid
+%%{init: {'themeVariables': { 'fontSize': '2em', 'htmlLabels': true }}}%%
+
 graph TD
     
     %% Styling Definitions
